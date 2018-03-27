@@ -147,6 +147,7 @@
 map <leader>t :Tagbar<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>w <c-w><c-w><CR>
+map <leader>s :vs ~/.vim/talen.vimrc<CR>
 
 map <leader>r :call CompileRunGcc()<CR>
   func! CompileRunGcc()
