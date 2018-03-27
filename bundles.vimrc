@@ -35,9 +35,14 @@
 " 插件本身
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'yianwillis/vimcdoc'
+
+if OSX()
 " markdown插件
   Plugin 'iamcco/mathjax-support-for-mkdp'
   Plugin 'iamcco/markdown-preview.vim'
+" dash vim
+    Plugin 'rizzatti/dash.vim'
+endif
 
 " 文件目录和函数结构
   Plugin 'scrooloose/nerdtree'
@@ -64,8 +69,7 @@
   Plugin 'jiangmiao/auto-pairs'
 " man pages
   Plugin 'vim-utils/vim-man'
-" dash vim
-  Plugin 'rizzatti/dash.vim'
+
 "===============================================================================
 " 以下范例用来支持不同格式的插件安装.
 " Github上的插件
@@ -105,8 +109,7 @@
 "-------------------------------------------------------------------------------
 " Markdown插件
   if OSX()
-    let g:mkdp_path_to_chrome = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome '
-  endif
+  let g:mkdp_path_to_chrome = '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome '
   let g:mkdp_auto_start = 0
     " set to 1, the vim will open the preview window once enter the markdown
     " buffer
@@ -127,6 +130,7 @@
   let g:mkdp_command_for_global = 0
     " set to 1, the MarkdownPreview command can be use for all files,
     " by default it just can be use in markdown file
+  endif
 "-------------------------------------------------------------------------------
 " nerdtree settings
   map <C-n> :NERDTreeToggle<CR>
@@ -137,7 +141,7 @@
 " ctrlp settings
  " let g:ctrlp_map = '<c-p>'
  let g:ctrlp_map = ',,'
- 
+
  let g:ctrlp_cmd = 'CtrlP'
 
   let g:ctrlp_working_path_mode = 'ra'
@@ -178,7 +182,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings=0
 "-------------------------------------------------------------------------------
 " 缩进指示线
 let g:indentLine_char='┆'
-let g:indentLine_enabled = 0 
+let g:indentLine_enabled = 0
 "autopep8设置"
 let g:autopep8_disable_show_diff=1
 "------------------------------------------------------------------------------
