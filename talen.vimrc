@@ -27,6 +27,7 @@
 "-------------------------------------------------------------------------------
 " vim自带设置
   " 定义快捷键的前缀，即<Leader>
+  set t_Co=256 " 开启256色支持
   set conceallevel=0
   hi link HelpBar Normal
   hi link HelpStar Normal
@@ -39,7 +40,6 @@
   set mouse+=a                         " 使用鼠标
   set clipboard+=unnamed
   set autoindent                       " 自动缩进
-" set cursorline                       " 在当前行画线
   set tabstop=4                        " Tab键的宽度
   set softtabstop=4                    " 统一缩进为4
   set shiftwidth=4
@@ -58,8 +58,10 @@
   nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
                                        " 用空格键来开关折叠
 
-  "highlight CursorLine   cterm=NONE ctermbg=darkcyan ctermfg=NONE guibg=NONE guifg=NONE
-  :highlight CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+  set cursorline                       " 在当前行画线 
+  "set cursorcolumn                     " 当前列
+  highlight CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE guibg=NONE guifg=NONE
+  "highlight CursorColumn cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
   set splitright                       " Puts new vsplit windows to the right of the current
   set splitbelow                       " Puts new split windows to the bottom of the current
