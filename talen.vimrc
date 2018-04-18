@@ -167,7 +167,7 @@ elseif &filetype == 'sh'
             :!time bash %
 elseif &filetype == 'python'
             "exec "!time python2.7 %"
-            exec "!python %"
+            exec "!python3 %"
 elseif &filetype == 'html'
             exec "!firefox % &"
 elseif &filetype == 'go'

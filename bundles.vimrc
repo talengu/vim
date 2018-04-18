@@ -70,6 +70,9 @@ endif
 " man pages
   Plugin 'vim-utils/vim-man'
 
+"multiple selections for Vim
+ Plugin 'terryma/vim-multiple-cursors'
+"
 "===============================================================================
 " 以下范例用来支持不同格式的插件安装.
 " Github上的插件
@@ -229,3 +232,15 @@ endif
 
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
 au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+"------------------------------------------------------------------------------
+" terryma/vim-multiple-cursors settings
+ let g:multi_cursor_use_default_mapping=0
+" Default mapping
+ let g:multi_cursor_start_word_key      = '<C-n>'
+ let g:multi_cursor_select_all_word_key = '<A-n>'
+ let g:multi_cursor_start_key           = 'g<C-n>'
+ let g:multi_cursor_select_all_key      = 'g<A-n>'
+ let g:multi_cursor_next_key            = '<C-n>'
+ let g:multi_cursor_prev_key            = '<C-p>'
+ let g:multi_cursor_skip_key            = '<C-x>'
+ let g:multi_cursor_quit_key            = '<Esc>'
