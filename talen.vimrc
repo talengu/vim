@@ -28,8 +28,8 @@
 " vim自带设置
   " 定义快捷键的前缀，即<Leader>
   set t_Co=256 " 开启256色支持
-  colorscheme space-vim-dark
-  hi Comment cterm=italic
+"  colorscheme space-vim-dark
+"  hi Comment cterm=italic
   set conceallevel=0
   hi link HelpBar Normal
   hi link HelpStar Normal
@@ -62,7 +62,7 @@
 
   set cursorline                       " 在当前行画线 
   "set cursorcolumn                     " 当前列
-  "highlight CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE guibg=NONE guifg=NONE
+  highlight CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE guibg=NONE guifg=NONE
   "highlight CursorColumn cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
   set splitright                       " Puts new vsplit windows to the right of the current
