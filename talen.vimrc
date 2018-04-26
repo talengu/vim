@@ -28,7 +28,7 @@
 " vim自带设置
   " 定义快捷键的前缀，即<Leader>
   set t_Co=256 " 开启256色支持
-"  colorscheme space-vim-dark
+  colorscheme desert
 "  hi Comment cterm=italic
   set conceallevel=0
   hi link HelpBar Normal
