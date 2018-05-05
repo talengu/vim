@@ -135,6 +135,40 @@ endif
     " by default it just can be use in markdown file
   endif
 "-------------------------------------------------------------------------------
+" Tagbar setting
+   let g:tagbar_type_tex = {
+            \ 'ctagstype' : 'latex',
+            \ 'kinds'     : [
+                \ 's:sections',
+                \ 'g:graphics:0:0',
+                \ 'l:labels',
+                \ 'r:refs:1:0',
+                \ 'p:pagerefs:1:0'
+            \ ],
+            \ 'sort'    : 0,
+            \ 'deffile' : '~/.vim/tagbar_cnf/latex.cnf'
+        \ }
+	let g:tagbar_type_markdown = {
+		\ 'ctagstype' : 'markdown',
+		\ 'kinds' : [
+			\ 'h:Heading_L1',
+			\ 'i:Heading_L2',
+			\ 'k:Heading_L3'
+		\ ],
+		 \ 'deffile' : '~/.vim/tagbar_cnf/markdown.cnf'
+		 \ }
+	let g:tagbar_type_css = {
+		\ 'ctagstype' : 'css',
+		\ 'kinds' : [
+			\ 'c:class',
+			\ 'v:variable',
+			\ 't:tag',
+			\'m:media'
+		\ ],
+		 \ 'deffile' : '~/.vim/tagbar_cnf/css.cnf'
+		 \ }
+
+"-------------------------------------------------------------------------------
 " nerdtree settings
 " map <C-n> :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree          "打开文件自动打开文件目录
@@ -148,7 +182,7 @@ endif
  let g:ctrlp_cmd = 'CtrlP'
 
   let g:ctrlp_working_path_mode = 'ra'
-  set wildignore+=*.so,*.swp,*.zip     " MacOSX/Linux */tmp/*
+  set wildignore+=*.so,*.swp,*.zip    " MacOSX/Linux */tmp/*
 " set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -156,7 +190,7 @@ endif
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(jpg|png|jpeg|exe|so|dll)$',
     \ }
-  let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+"  let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 " let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 "-------------------------------------------------------------------------------
 " YoucompleteMe自动补全配置
