@@ -22,18 +22,21 @@
         return  (has('win16') || has('win32') || has('win64'))
     endfunction
 
-"-------------------------------------------------------------------------------
-  set nocompatible                  " 去除VI一致性,必须
-  filetype off                      " 必须
-
-  set rtp+=~/.vim/bundle/Vundle.vim " 设置包括vundle和初始化相关的runtime path
-" call vundle#begin('~/some/path/here')
-" 另一种选择, 指定一个vundle安装插件的路径
-  call vundle#begin()
-
 "===============================================================================
-" 插件本身
+" vundle初始化
+  set nocompatible                     " 去除VI一致性,必须
+  filetype off                         " 必须
+
+" 设置包括vundle和初始化相关的runtime path
+  set rtp+=~/.vim/bundle/Vundle.vim 
+
+  call vundle#begin()
+" 或者指定vundle插件的路径 call vundle#begin('~/some/path/here')
+
+" 插件管理工具
   Plugin 'VundleVim/Vundle.vim'
+
+" vim中文帮助文档
   Plugin 'yianwillis/vimcdoc'
 
 if OSX()
@@ -41,7 +44,7 @@ if OSX()
   Plugin 'iamcco/mathjax-support-for-mkdp'
   Plugin 'iamcco/markdown-preview.vim'
 " dash vim
-    Plugin 'rizzatti/dash.vim'
+  Plugin 'rizzatti/dash.vim'
 endif
 
 " 文件目录和函数结构
@@ -54,13 +57,13 @@ endif
 
   Plugin 'kien/ctrlp.vim'
 
-  "Plugin 'vim-scripts/winmanager'
+" Plugin 'vim-scripts/winmanager'
   Plugin 'Lokaltog/vim-powerline'
   Plugin 'Valloric/YouCompleteMe'
 
-  " Track the engine.
+" Track the engine.
   Plugin 'SirVer/ultisnips'
-  " Snippets are separated from the engine. Add this if you want them:
+" Snippets are separated from the engine. Add this if you want them:
   Plugin 'honza/vim-snippets'
 
 " 缩进指示线
@@ -70,11 +73,28 @@ endif
 " man pages
   Plugin 'vim-utils/vim-man'
 
-"multiple selections for Vim
- Plugin 'terryma/vim-multiple-cursors'
-"
+" multiple selections for Vim
+  Plugin 'terryma/vim-multiple-cursors'
+
+ 
+
+" vundle end
+  call vundle#end()
+
+" 必须 加载vim自带和插件相应的语法和文件类型相关脚本  
+  filetype plugin indent on   
+
+" filetype plugin on          " 或者忽视插件改变缩进
+
 "===============================================================================
-" 以下范例用来支持不同格式的插件安装.
+" vundle 简要帮助文档
+
+" :PluginList       - 列出所有已配置的插件
+" :PluginInstall    - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
+" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
+" :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
+
+" 配置方式
 " Github上的插件
 " 格式为 Plugin '用户名/插件仓库名'
 
@@ -96,18 +116,8 @@ endif
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 
-  call vundle#end()
-  filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
-" filetype plugin on          " 或者忽视插件改变缩进
-
-" 简要帮助文档
-" :PluginList       - 列出所有已配置的插件
-" :PluginInstall    - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
-" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
-" :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
-"
-" 查阅 :h vundle 获取更多细节和wiki以及FAQ
-" 下面执行插件的设置工作
+"===============================================================================
+" 插件的配置
 
 "-------------------------------------------------------------------------------
 " Markdown插件
@@ -134,6 +144,7 @@ endif
     " set to 1, the MarkdownPreview command can be use for all files,
     " by default it just can be use in markdown file
   endif
+
 "-------------------------------------------------------------------------------
 " Tagbar setting
    let g:tagbar_type_tex = {
@@ -174,14 +185,15 @@ endif
 " autocmd vimenter * NERDTree          "打开文件自动打开文件目录
 " close when only has Nerdtree view
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "-------------------------------------------------------------------------------
 " ctrlp settings
- " let g:ctrlp_map = '<c-p>'
- let g:ctrlp_map = ',,'
-
- let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_map = ',,'
+  let g:ctrlp_cmd = 'CtrlP'
 
   let g:ctrlp_working_path_mode = 'ra'
+  
   set wildignore+=*.so,*.swp,*.zip    " MacOSX/Linux */tmp/*
 " set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
@@ -190,47 +202,62 @@ endif
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(jpg|png|jpeg|exe|so|dll)$',
     \ }
-"  let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+
+" let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 " let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+
 "-------------------------------------------------------------------------------
 " YoucompleteMe自动补全配置
-let mapleader=";"
-nnoremap <leader>b :YcmCompleter GoToDeclaration<CR>
+  let mapleader=";"
+  nnoremap <leader>b :YcmCompleter GoToDeclaration<CR>
 
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"let g:ycm_confirm_extra_conf=0
+  let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_confirm_extra_conf=0
+
+  set completeopt=longest,menu
+  let g:ycm_key_list_previous_completion=['<Down>']
+  let g:ycm_key_list_previous_completion=['<Up>']
+  let g:ycm_collect_identifiers_from_tags_files=1
+  let g:ycm_min_num_of_chars_for_completion=2
+  let g:ycm_seed_identifiers_with_syntax=1
 
 
-set completeopt=longest,menu
-let g:ycm_key_list_previous_completion=['<Down>']
-let g:ycm_key_list_previous_completion=['<Up>']
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_min_num_of_chars_for_completion=2
-let g:ycm_seed_identifiers_with_syntax=1
+  let g:ycm_complete_in_comments=1
+  let g:ycm_complete_in_strings=1
+  let g:ycm_collect_identifiers_from_comments_and_strings=0
 
-
-let g:ycm_complete_in_comments=1
-let g:ycm_complete_in_strings=1
-let g:ycm_collect_identifiers_from_comments_and_strings=0
 " 补全菜单颜色
   hi Pmenu  guifg=#1c1c1c guibg=#F1F1F1 ctermfg=black ctermbg=Lightgray
   hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
   hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+
+"-------------------------------------------------------------------------------
+" fugitive的设置
+
+" Gdiff 高亮设置
+" highlight clear SignColumn      " SignColumn should match background
+" highlight clear LineNr          " Current line number row will have same background color in relative mode
+" 设置标记一列的背景颜色和数字一行颜色一致
+" hi! link SignColumn   LineNr
+" hi! link ShowMarksHLl DiffAdd
+" hi! link ShowMarksHLu DiffChange
+
 "-------------------------------------------------------------------------------
 " 缩进指示线
-let g:indentLine_char='┆'
-let g:indentLine_enabled = 0
-"autopep8设置"
-let g:autopep8_disable_show_diff=1
+  let g:indentLine_char='┆'
+  let g:indentLine_enabled = 0
+" autopep8设置"
+  let g:autopep8_disable_show_diff=1
+
 "------------------------------------------------------------------------------
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res == 0
@@ -266,15 +293,16 @@ endif
 
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
 au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+
 "------------------------------------------------------------------------------
 " terryma/vim-multiple-cursors settings
- let g:multi_cursor_use_default_mapping=0
+  let g:multi_cursor_use_default_mapping=0
 " Default mapping
- let g:multi_cursor_start_word_key      = '<C-n>'
- let g:multi_cursor_select_all_word_key = '<A-n>'
- let g:multi_cursor_start_key           = 'g<C-n>'
- let g:multi_cursor_select_all_key      = 'g<A-n>'
- let g:multi_cursor_next_key            = '<C-n>'
- let g:multi_cursor_prev_key            = '<C-p>'
- let g:multi_cursor_skip_key            = '<C-x>'
- let g:multi_cursor_quit_key            = '<Esc>'
+  let g:multi_cursor_start_word_key      = '<C-n>'
+  let g:multi_cursor_select_all_word_key = '<A-n>'
+  let g:multi_cursor_start_key           = 'g<C-n>'
+  let g:multi_cursor_select_all_key      = 'g<A-n>'
+  let g:multi_cursor_next_key            = '<C-n>'
+  let g:multi_cursor_prev_key            = '<C-p>'
+  let g:multi_cursor_skip_key            = '<C-x>'
+  let g:multi_cursor_quit_key            = '<Esc>'
