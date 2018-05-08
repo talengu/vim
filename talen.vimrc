@@ -27,7 +27,9 @@
 "-------------------------------------------------------------------------------
 " vim自带设置
   set t_Co=256 " 开启256色支持
-  colorscheme desert
+  colorscheme talen_desert
+ 
+
   set conceallevel=0
  " hi link HelpBar Normal
  " hi link HelpStar Normal
