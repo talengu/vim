@@ -180,6 +180,10 @@ endif
 		 \ }
 
 "-------------------------------------------------------------------------------
+" powerline config
+
+
+"-------------------------------------------------------------------------------
 " nerdtree settings
 " map <C-n> :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree          "打开文件自动打开文件目录
@@ -258,41 +262,42 @@ endif
 
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
+ function! g:UltiSnips_Complete()
+   call UltiSnips#ExpandSnippet()
+   if g:ulti_expand_res == 0
+     if pumvisible()
+       return "\<C-n>"
+     else
+       call UltiSnips#JumpForwards()
+       if g:ulti_jump_forwards_res == 0
+         return "\<TAB>"
+       endif
+     endif
+   endif
+   return ""
+ endfunction
+ 
+ function! g:UltiSnips_Reverse()
+   call UltiSnips#JumpBackwards()
+   if g:ulti_jump_backwards_res == 0
+     return "\<C-P>"
+   endif
+ 
+   return ""
+ endfunction
+ 
+ 
+ if !exists("g:UltiSnipsJumpForwardTrigger")
+   let g:UltiSnipsJumpForwardTrigger = "<tab>"
+ endif
+ 
+ if !exists("g:UltiSnipsJumpBackwardTrigger")
+   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+ endif
 
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
 
-  return ""
-endfunction
-
-
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
-
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
-
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+ au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
 "------------------------------------------------------------------------------
 " terryma/vim-multiple-cursors settings

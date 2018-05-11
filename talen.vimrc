@@ -28,7 +28,7 @@
 " vim自带设置
   set t_Co=256 " 开启256色支持
   colorscheme talen_desert
- 
+  set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
   set conceallevel=0
  " hi link HelpBar Normal
@@ -90,7 +90,7 @@
       set showcmd                 " Show partial commands in status line and
                                   " Selected characters/lines in visual mode
   endif
-
+ 
   if has('statusline')
       set laststatus=2
       " Broken down into easily includeable segments
@@ -147,7 +147,18 @@
       :!time bash %
     elseif &filetype == 'python'
     " exec "!time python2.7 %"
-      exec "!python3 %"
+    " exec "!python3 %"
+	  let mp = &makeprg
+      let ef = &errorformat
+      let exeFile = expand("%:t")
+      setlocal makeprg=python3\ -u
+      set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+      silent make %
+      copen
+      let &makeprg = mp
+      let &errorformat = ef
+
+
     elseif &filetype == 'html'
       exec "!firefox % &"
     elseif &filetype == 'go'
