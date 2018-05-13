@@ -120,7 +120,7 @@
 
 "-------------------------------------------------------------------------------
 " map 快捷键
-  map <leader>r :call CompileRunFile()<CR>
+ "map <leader>r :call CompileRunFile()<CR>
   
   map <leader>t :Tagbar<CR>
   map <leader>n :NERDTreeToggle<CR>
@@ -148,17 +148,6 @@
     elseif &filetype == 'python'
     " exec "!time python2.7 %"
     " exec "!python3 %"
-	  let mp = &makeprg
-      let ef = &errorformat
-      let exeFile = expand("%:t")
-      setlocal makeprg=python3\ -u
-      set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-      silent make %
-      copen
-      let &makeprg = mp
-      let &errorformat = ef
-
-
     elseif &filetype == 'html'
       exec "!firefox % &"
     elseif &filetype == 'go'

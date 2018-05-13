@@ -76,6 +76,9 @@ endif
 " multiple selections for Vim
   Plugin 'terryma/vim-multiple-cursors'
 
+" 自动运行插件
+" http://liuchengxu.org/posts/use-vim-as-a-python-ide/
+  Plugin 'skywind3000/asyncrun.vim'
  
 
 " vundle end
@@ -311,3 +314,33 @@ endif
   let g:multi_cursor_prev_key            = '<C-p>'
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
+
+"------------------------------------------------------------------------------
+" Quick run via <leader>r
+  nnoremap <leader>r :call <SID>compile_and_run()<CR> 
+" map <leader>r :call <SID>compile_and_run()<CR>
+
+  
+  augroup SPACEVIM_ASYNCRUN
+      autocmd!
+      " Automatically open the quickfix window
+      autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+  augroup END
+  
+  function! s:compile_and_run()
+      exec 'w'
+      if &filetype == 'c'
+          exec "AsyncRun! gcc % -o %<; time ./%<"
+      elseif &filetype == 'cpp'
+         exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+      elseif &filetype == 'java'
+         exec "AsyncRun! javac %; time java %<"
+      elseif &filetype == 'sh'
+         exec "AsyncRun! time bash %"
+      elseif &filetype == 'python'
+         exec "AsyncRun! time python3 %"
+      endif
+  endfunction
+
+
+
