@@ -68,11 +68,12 @@
 "-------------------------------------------------------------------------------
 " 界面调整
 " 折叠属性
-  set foldenable 
+  "set foldenable 
+  set nofoldenable
   set foldmethod=syntax                " 设置语法折叠
   set foldcolumn=1                     " 设置折叠区域的宽度
   setlocal foldlevel=2                 " 设置折叠层数为
-" set foldclose=all                    " 设置为自动关闭折叠
+  "set foldclose=all                    " 设置为自动关闭折叠
   hi Folded guibg=NONE guifg=NONE ctermfg=grey ctermbg=NONE
   hi FoldColumn guibg=NONE guifg=NONE ctermfg=4 ctermbg=NONE
   nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
@@ -80,7 +81,7 @@
 " cursorline属性
   set cursorline
 " set cursorcolumn                     " 当前列
-  highlight CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE guibg=NONE guifg=NONE
+  highlight CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 " highlight CursorColumn cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
 " cmdline属性
