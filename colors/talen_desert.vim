@@ -104,7 +104,7 @@ hi Normal	guifg=White guibg=grey20
 
 " highlight groups
 hi Cursor	guibg=khaki guifg=slategrey
-hi CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE guibg=NONE guifg=NONE
+hi CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
 "hi CursorIM
 "hi Directory
@@ -191,7 +191,9 @@ call s:hi('PmenuSbar'  , 28  , 233   , 'None' , 'None')
 call s:hi('PmenuThumb' , 160 , 97    , 'None' , 'None')
 
 " VertSplit consistent with normal background to hide it
-call s:hi('VertSplit' , 235 , '' , 'None' , 'None')
+call s:hi('VertSplit' , 238 , '' , 'None' , 'None')
+
+call s:hi('MatchParen', 45 , 238 , 'bold,underline', 'bold,underline')
 
 " 补全菜单颜色
 "hi Pmenu  guifg=#1c1c1c guibg=#F1F1F1 ctermfg=black ctermbg=Lightgray
