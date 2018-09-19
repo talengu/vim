@@ -1,9 +1,12 @@
 #!/bin/bash
 RES_NAME=/tmp/vim
-VIM_FOLDER=~/121
+VIM_FOLDER=~/.vim
 
 if [ -d $VIM_FOLDER ]; then
-   echo "Folder $VIM_FOLDER exists. Please backup old .vim RUN----
+   echo "Folder $VIM_FOLDER exists.
+Update RUN:
+   git pull
+Backup old.vim RUN:
    cp -r $VIM_FOLDER ~/.vim.backup && rm -rf $VIM_FOLDER
    sh install.sh"
 else
