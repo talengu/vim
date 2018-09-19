@@ -127,7 +127,9 @@
   map <leader>n :NERDTreeToggle<CR>
   map <leader>w <c-w><c-w><CR>
   map <leader>s :e ~/.vim/bundles.vimrc<CR>
- 
+  map <leader>f *<CR>
+  "nmap <silent> <leader>h <ESC>:lv /\<<c-r><c-w>\>/j **/*.[h]<CR>:lw<CR>
+
 "-------------------------------------------------------------------------------
 " 自定义函数
 
@@ -188,4 +190,16 @@
 "    let &makeprg = mp
 "    let &errorformat = ef
 " endfunction
- 
+" 
+
+" set updatetime=10
+
+"  function! HighlightWordUnderCursor()
+"    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+"        exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
+"    else
+"        match none
+"    endif
+"  endfunction
+
+" autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()

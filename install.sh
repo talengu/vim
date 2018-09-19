@@ -1,24 +1,24 @@
 #!/bin/bash
-RES_NAME=vim
-git clone https://github.com/talengu/vim $RES_NAME
-git clone https://github.com/VundleVim/Vundle.vim.git $RES_NAME/bundle/Vundle.vim
+RES_NAME=/tmp/vim
+VIM_FOLDER=~/121
 
-echo "#! /bin/sh
-vim -c \"Man \$1 \$2\" -c 'silent only'
-" > $RES_NAME/viman
-
-echo "set completion-ignore-case on" >> ~/.inputrc
-
-chmod +x $RES_NAME/viman
-
-VIM_FOLDER=~/.vim
 if [ -d $VIM_FOLDER ]; then
-   echo "File $VIM_FOLDER exists. Please backup old .vim ----
+   echo "Folder $VIM_FOLDER exists. Please backup old .vim RUN----
    cp -r $VIM_FOLDER ~/.vim.backup && rm -rf $VIM_FOLDER
-   cp -r $RES_NAME $VIM_FOLDER"
+   sh install.sh"
 else
-   echo "File $VIM_FOLDER does not exist."
-   cp -r $RES_NAME $VIM_FOLDER
-   echo "source $VIM_FOLDER/talen.bashrc" >> ~/.bashrc
-   echo "success"
+  git clone https://github.com/talengu/vim $RES_NAME
+  git clone https://github.com/VundleVim/Vundle.vim.git $RES_NAME/bundle/Vundle.vim
+
+  echo "#! /bin/sh
+  vim -c \"Man \$1 \$2\" -c 'silent only'
+  " > $RES_NAME/viman
+
+  chmod +x $RES_NAME/viman
+
+  echo "Copy $RES_NAME to $VIM_FOLDER ."
+  cp -r $RES_NAME $VIM_FOLDER
+  echo "source $VIM_FOLDER/talen.bashrc" >> ~/.bashrc
+  echo "set completion-ignore-case on" >> ~/.inputrc
+  echo "success"
 fi
