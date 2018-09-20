@@ -20,8 +20,8 @@
 
 "-------------------------------------------------------------------------------
 " 使用bundle管理插件
-   if filereadable(expand("$HOME/.vim/bundles.vimrc"))
-       source $HOME/.vim/bundles.vimrc
+   if filereadable(expand("$HOME/.vim/plugins.vimrc"))
+       source $HOME/.vim/plugins.vimrc
    endif
 
 "-------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
 
 " set paste                            " 会影响youcomplete插件的使用
   set backspace=indent,eol,start       " 保证在insert模式下可以删除
- 
+
   set splitright                       " Puts new vsplit windows to the right of the current
   set splitbelow                       " Puts new split windows to the bottom of the current
   autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
@@ -59,7 +59,7 @@
 
   set synmaxcol=200                    " highlight最大的列数为200，200后的代码将没有高亮，
                                        " 防止处理含有特别长的行的时候，拖慢vim
-  
+
   set incsearch                        " 实时搜索
   set hlsearch                         " 高亮搜索结果"
 
@@ -68,7 +68,7 @@
 "-------------------------------------------------------------------------------
 " 界面调整
 " 折叠属性
-  "set foldenable 
+  "set foldenable
   set nofoldenable
   set foldmethod=syntax                " 设置语法折叠
   set foldcolumn=1                     " 设置折叠区域的宽度
@@ -91,7 +91,7 @@
       set showcmd                 " Show partial commands in status line and
                                   " Selected characters/lines in visual mode
   endif
- 
+
   if has('statusline')
       set laststatus=2
       " Broken down into easily includeable segments
@@ -122,13 +122,18 @@
 "-------------------------------------------------------------------------------
 " map 快捷键
  "map <leader>r :call CompileRunFile()<CR>
-  
+
   map <leader>t :Tagbar<CR>
   map <leader>n :NERDTreeToggle<CR>
   map <leader>w <c-w><c-w><CR>
   map <leader>s :e ~/.vim/bundles.vimrc<CR>
   map <leader>f *<CR>
   "nmap <silent> <leader>h <ESC>:lv /\<<c-r><c-w>\>/j **/*.[h]<CR>:lw<CR>
+" Smart way to move between windows
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+  map <C-j> <C-W>h
+  map <C-k> <C-W>l
 
 "-------------------------------------------------------------------------------
 " 自定义函数
@@ -136,7 +141,7 @@
 " 执行文件
   func! CompileRunFile()
     exec "w"
-    
+
 	if &filetype == 'c'
       exec "!g++ % -o %< && %<"
     " exec "!time ./%<"
@@ -190,7 +195,7 @@
 "    let &makeprg = mp
 "    let &errorformat = ef
 " endfunction
-" 
+"
 
 " set updatetime=10
 
