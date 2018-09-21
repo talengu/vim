@@ -3,39 +3,51 @@
 "                        | |/  \/ /  > \ / __)     |
 "                        | ( ()  <  / ^ \> _)| |\  |
 "                        |_|\__/\_\/_/ \_\___)_| \_|
-"  talen.vimrc                                                talen 2018/3/27
+"  talen.vimrc                                                talen 2018/9/21
 "===============================================================================
-" 检测系统
-    silent function! OSX()             " 检测mac  if OSX() endif
-        return has('macunix')
-    endfunction
-
-    silent function! LINUX()           " 检测linux
-        return has('unix') && !has('macunix') && !has('win32unix')
-    endfunction
-
-    silent function! WINDOWS()         " 检测windows
-        return  (has('win16') || has('win32') || has('win64'))
-    endfunction
 
 "-------------------------------------------------------------------------------
-" 使用bundle管理插件
-   if filereadable(expand("$HOME/.vim/plugins.vimrc"))
-       source $HOME/.vim/plugins.vimrc
-   endif
+" which system? like `if OSX() endif`
+
+  silent function! OSX()
+      return has('macunix')
+  endfunction
+
+  silent function! LINUX()
+      return has('unix') && !has('macunix') && !has('win32unix')
+  endfunction
+
+  silent function! WINDOWS()
+      return  (has('win16') || has('win32') || has('win64'))
+  endfunction
 
 "-------------------------------------------------------------------------------
-" vim自带设置
+" vundle settings
+
+  set nocompatible                     " 去除VI一致性,必须
+  filetype off                         " 必须
+
+  set rtp+=~/.vim/plugins/Vundle.vim
+  call vundle#begin('~/.vim/plugins')
+  Plugin 'VundleVim/Vundle.vim'
+  source ~/.vim/settings.vim
+  call vundle#end()
+
+  filetype plugin indent on " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
+
+" filetype plugin on          " 或者忽视插件改变缩进
+
+"-------------------------------------------------------------------------------
+" Vim General
+
   set t_Co=256 " 开启256色支持
   colorscheme talen_desert
   set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
   set conceallevel=0
- " hi link HelpBar Normal
- " hi link HelpStar Normal
+" hi link HelpBar Normal
+" hi link HelpStar Normal
 
-" 定义快捷键的前缀，即<Leader>
-  let mapleader=";"
   set nocp                             " 设置与vi不兼容
   set number                           " 设置行号
   syntax on                            " 语法高亮
@@ -65,9 +77,13 @@
 
 " set virtualedit=onemore              " 最后一下单词后可以编辑
 
+" Return to last edit position when opening files (You want this!)下一次打开文件恢复上一次位置
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 "-------------------------------------------------------------------------------
 " 界面调整
-" 折叠属性
+
+" fold 属性
   "set foldenable
   set nofoldenable
   set foldmethod=syntax                " 设置语法折叠
@@ -78,67 +94,56 @@
   hi FoldColumn guibg=NONE guifg=NONE ctermfg=4 ctermbg=NONE
   nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
                                        " 用空格键来开关折叠
-" cursorline属性
+" cursorline 属性
   set cursorline
 " set cursorcolumn                     " 当前列
   highlight CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 " highlight CursorColumn cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
-" cmdline属性
-  if has('cmdline_info')
-      set ruler                   " Show the ruler
-      set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-      set showcmd                 " Show partial commands in status line and
-                                  " Selected characters/lines in visual mode
-  endif
+" Always show the status line
+  set laststatus=2
 
-  if has('statusline')
-      set laststatus=2
-      " Broken down into easily includeable segments
-      set statusline=%<%f\                     " Filename
-      set statusline+=%w%h%m%r                 " Options
-      set statusline+=%{fugitive#statusline()} " Git Hotness
-      set statusline+=\ [%{&ff}/%Y]            " Filetype
-      set statusline+=\ [%{getcwd()}]          " Current dir
-      set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-  endif
-
+" cmdline 属性
+"  if has('cmdline_info')
+"      set ruler                   " Show the ruler
+"      set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+"      set showcmd                 " Show partial commands in status line and
+"                                  " Selected characters/lines in visual mode
+"  endif
+"
+"  if has('statusline')
+"      set laststatus=2
+"      " Broken down into easily includeable segments
+"      set statusline=%<%f\                     " Filename
+"      set statusline+=%w%h%m%r                 " Options
+"      set statusline+=%{fugitive#statusline()} " Git Hotness
+"      set statusline+=\ [%{&ff}/%Y]            " Filetype
+"      set statusline+=\ [%{getcwd()}]          " Current dir
+"      set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+"  endif
+"
 " 行号属性
 " 插入模式下用绝对行号, 普通模式下用相对
-"  set relativenumber               " 第一次初始化成相关行号
-"   au FocusLost * :set norelativenumber number
-"   au FocusGained * :set relativenumber
-"   autocmd InsertEnter * :set norelativenumber number
-"   autocmd InsertLeave * :set relativenumber
-"   function! NumberToggle()
-"       if(&relativenumber == 1)
-"           set norelativenumber number
-"       else
-"           set relativenumber
-"       endif
-"   endfunc
-" nnoremap <C-n> :call NumberToggle()<cr> "改变Number的快捷键
+  set relativenumber               " 第一次初始化成相关行号
+   au FocusLost * :set norelativenumber number
+   au FocusGained * :set relativenumber
+   autocmd InsertEnter * :set norelativenumber number
+   autocmd InsertLeave * :set relativenumber
+   function! NumberToggle()
+       if(&relativenumber == 1)
+           set norelativenumber number
+       else
+           set relativenumber
+       endif
+   endfunc
+ nnoremap <C-n> :call NumberToggle()<cr> "改变Number的快捷键
 
-"-------------------------------------------------------------------------------
-" map 快捷键
- "map <leader>r :call CompileRunFile()<CR>
-
-  map <leader>t :Tagbar<CR>
-  map <leader>n :NERDTreeToggle<CR>
-  map <leader>w <c-w><c-w><CR>
-  map <leader>s :e ~/.vim/bundles.vimrc<CR>
-  map <leader>f *<CR>
-  "nmap <silent> <leader>h <ESC>:lv /\<<c-r><c-w>\>/j **/*.[h]<CR>:lw<CR>
-" Smart way to move between windows
-" map <C-j> <C-W>j
-" map <C-k> <C-W>k
-  map <C-j> <C-W>h
-  map <C-k> <C-W>l
 
 "-------------------------------------------------------------------------------
 " 自定义函数
 
 " 执行文件
+" map <leader>r :call CompileRunFile()<CR>
   func! CompileRunFile()
     exec "w"
 

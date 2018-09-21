@@ -11,7 +11,7 @@ Backup old.vim RUN:
    sh install.sh"
 else
   git clone https://github.com/talengu/vim $RES_NAME
-  git clone https://github.com/VundleVim/Vundle.vim.git $RES_NAME/bundle/Vundle.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git $RES_NAME/plugins/Vundle.vim
 
   echo "#! /bin/sh
   vim -c \"Man \$1 \$2\" -c 'silent only'
