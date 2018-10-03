@@ -5,6 +5,7 @@
   map <leader>t :Tagbar<CR>
   map <leader>n :NERDTreeToggle<CR>
   map <leader>w <c-w><c-w><CR>
+  map <leader>q :q<CR>
   map <leader>s :e ~/.vim/settings.vim<CR>
   map <leader>f *<CR>
   nnoremap <leader>b :YcmCompleter GoToDeclaration<CR>
