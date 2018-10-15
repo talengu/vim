@@ -84,4 +84,5 @@ thank you!
 [1]: https://github.com/wklken/k-vim	"k-vim ycm tagbar 安装的参考"
 [2]: https://github.com/amix/vimrc	"stars most in github"
 [3]: https://github.com/humiaozuzu/dot-vimrc	"pictures good"
+[4]: https://github.com/chxuan/vimplus  "vimplus"
 
