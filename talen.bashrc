@@ -25,4 +25,5 @@
   alias man='~/.vim/viman'
 
 # pandoc `tohtml file.md` to html and so on 
-alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
+  alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
+  alias todomd='find ./ -name "*.md"| xargs grep TODO'

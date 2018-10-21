@@ -41,7 +41,7 @@
 " Vim General
 
   set t_Co=256 " 开启256色支持
-  colorscheme talen_desert
+  colorscheme onedark "talen_desert
   set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
   set conceallevel=0
@@ -124,19 +124,19 @@
 "
 " 行号属性
 " 插入模式下用绝对行号, 普通模式下用相对
-  set relativenumber               " 第一次初始化成相关行号
-   au FocusLost * :set norelativenumber number
-   au FocusGained * :set relativenumber
-   autocmd InsertEnter * :set norelativenumber number
-   autocmd InsertLeave * :set relativenumber
-   function! NumberToggle()
-       if(&relativenumber == 1)
-           set norelativenumber number
-       else
-           set relativenumber
-       endif
-   endfunc
- nnoremap <C-n> :call NumberToggle()<cr> "改变Number的快捷键
+  "set relativenumber               " 第一次初始化成相关行号
+  " au FocusLost * :set norelativenumber number
+  " au FocusGained * :set relativenumber
+  " autocmd InsertEnter * :set norelativenumber number
+  " autocmd InsertLeave * :set relativenumber
+  " function! NumberToggle()
+  "     if(&relativenumber == 1)
+  "         set norelativenumber number
+  "     else
+  "         set relativenumber
+  "     endif
+  " endfunc
+" nnoremap <C-n> :call NumberToggle()<cr> "改变Number的快捷键
 
 
 "-------------------------------------------------------------------------------
