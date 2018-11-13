@@ -27,3 +27,6 @@
 # pandoc `tohtml file.md` to html and so on 
   alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
   alias todomd='find ./ -name "*.md"| xargs grep TODO'
+# svn get part folder of github project
+  alias svngit='f(){ svn checkout `echo $1 | sed "s/tree\/master/trunk/g"` ; unset -f f; }; f'
+
