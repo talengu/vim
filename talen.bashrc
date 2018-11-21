@@ -30,3 +30,14 @@
 # svn get part folder of github project
   alias svngit='f(){ svn checkout `echo $1 | sed "s/tree\/master/trunk/g"` ; unset -f f; }; f'
 
+# docker
+  alias allusers='awk  -F'\'':'\'' '\''$3>999 {print $3 " " $1 }'\'' /etc/passwd | column -t | grep -v nobody'
+  alias dnet='netstat -tunlp'
+  alias decho='echo ------------------------------------------------------------------------------------------------------------------------------------------------'
+  alias dexe='f(){ docker exec -it "$1" /bin/bash; unset -f f; }; f'
+  alias dll='clear && decho && docker images && decho && docker ps -s && decho'
+  alias dls='clear && decho && docker images && decho && docker ps -sa && decho'
+  alias drm='docker rm'
+  alias dstart='docker start'
+  alias dstop='docker stop'
+
