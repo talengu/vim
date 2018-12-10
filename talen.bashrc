@@ -3,9 +3,12 @@
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
 
 # vimrc
-  export TALEN_VIMRC=~/.vim/talen.vimrc
+TALEN_VIMRC=~/.vim/talen.vimrc
+if [ -f $TALEN_VIMRC ]; then
   export VIMINIT="let &rtp='~/.vim,' . &rtp
   so $TALEN_VIMRC"
+fi
+
 
   alias pi='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias gpuwatch='watch -n 1 nvidia-smi'
