@@ -15,5 +15,6 @@ curl $URL_BASHRC > $VIM_FOLDER/talen.bashrc
 echo "source $VIM_FOLDER/talen.bashrc" >> ~/.bashrc
 echo "set completion-ignore-case on" >> ~/.inputrc
 
+source $VIM_FOLDER/talen.bashrc
 source ~/.bashrc
 echo "success"
