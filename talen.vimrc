@@ -41,7 +41,7 @@
 " Vim General
 
   set t_Co=256 " 开启256色支持
-  colorscheme onedark "talen_desert
+  colorscheme talen_desert "onedark
   set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
   set conceallevel=0
