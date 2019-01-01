@@ -5,7 +5,16 @@ This is a vimrc project.  [settings.vim](settings.vim) is for vim and plugins co
 
 ![screen_ctrp](README.img/screen_ctrp.png)
 
+## Install 
 
+- Use scripts
+
+  ```
+  curl https://raw.githubusercontent.com/talengu/vim/master/install.sh
+  ```
+
+
+- Step by step
 
 ## My plugins
 
@@ -46,16 +55,6 @@ plugins I am using...
 
 
 
-## Install 
-
-- Use scripts
-
-  ```
-  curl https://raw.githubusercontent.com/talengu/vim/master/install.sh
-  ```
-
-
-- Step by step
 
 ## Key-maps
 
