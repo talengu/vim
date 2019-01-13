@@ -104,9 +104,7 @@ hi Normal	guifg=White guibg=grey20
 
 " highlight groups
 hi Cursor	guibg=khaki guifg=slategrey
-"hi CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
-hi CursorLine   cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-
+hi CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
 "hi CursorIM
 "hi Directory

@@ -1,11 +1,12 @@
 "-------------------------------------------------------------------------------
 " key map
+
   let mapleader=";"                    " kep map <Leader>
   map <leader>t :Tagbar<CR>
   map <leader>n :NERDTreeToggle<CR>
   map <leader>w <c-w><c-w><CR>
   map <leader>q :q<CR>
-  map <leader>s :e $NICE_VIM_DIR/settings.vim<CR>
+  map <leader>s :e ~/.vim/settings.vim<CR>
   map <leader>f *<CR>
   nnoremap <leader>b :YcmCompleter GoToDeclaration<CR>
 
@@ -57,22 +58,22 @@
 "-------------------------------------------------------------------------------
 " Plugin configs
 
-  source $NICE_VIM_DIR/cfgs/lightline_cfg.vim
-  source $NICE_VIM_DIR/cfgs/tagbar_cfg.vim
+  source ~/.vim/cfgs/lightline_cfg.vim
+  source ~/.vim/cfgs/tagbar_cfg.vim
 
-  source $NICE_VIM_DIR/cfgs/ycm_cfg.vim
-  source $NICE_VIM_DIR/cfgs/snips_cfg.vim
+  source ~/.vim/cfgs/ycm_cfg.vim
+  source ~/.vim/cfgs/snips_cfg.vim
 
-  source $NICE_VIM_DIR/cfgs/fugitive_cfg.vim
-  source $NICE_VIM_DIR/cfgs/ctrlp_cfg.vim
+  source ~/.vim/cfgs/fugitive_cfg.vim
+  source ~/.vim/cfgs/ctrlp_cfg.vim
 
-  source $NICE_VIM_DIR/cfgs/nerdtree_cfg.vim
-  source $NICE_VIM_DIR/cfgs/vim-multiple-cursors_cfg.vim
+  source ~/.vim/cfgs/nerdtree_cfg.vim
+  source ~/.vim/cfgs/vim-multiple-cursors_cfg.vim
 
-  source $NICE_VIM_DIR/cfgs/indentline_cfg.vim
-  source $NICE_VIM_DIR/cfgs/autopep8_cfg.vim
+  source ~/.vim/cfgs/indentline_cfg.vim
+  source ~/.vim/cfgs/autopep8_cfg.vim
 
-  source $NICE_VIM_DIR/cfgs/asyncrun_cfg.vim
+  source ~/.vim/cfgs/asyncrun_cfg.vim
 
 "-------------------------------------------------------------------------------
 " vim-help-doc and markdown editor
@@ -85,5 +86,5 @@ if 0                                               " for faster
   Plugin 'iamcco/mathjax-support-for-mkdp'
   Plugin 'iamcco/markdown-preview.vim'             " markdown插件
   Plugin 'dhruvasagar/vim-table-mode'              " mardown table 的格式化
-  source $NICE_VIM_DIR/cfgs/markdown_cfg.vim
+  source ~/.vim/cfgs/markdown_cfg.vim
 endif
