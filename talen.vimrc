@@ -27,10 +27,12 @@
   set nocompatible                     " 去除VI一致性,必须
   filetype off                         " 必须
 
-  set rtp+=~/.vim/plugins/Vundle.vim
-  call vundle#begin('~/.vim/plugins')
+  let NICE_VIM_DIR=g:NICE_VIM_DIR
+  set rtp+=NICE_VIM_DIR/plugins/Vundle.vim
+  
+  call vundle#begin(NICE_VIM_DIR/plugins)
   Plugin 'VundleVim/Vundle.vim'
-  source ~/.vim/settings.vim
+  source s:NICE_VIM_DIR/settings.vim
   call vundle#end()
 
   filetype plugin indent on " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
@@ -96,8 +98,8 @@
                                        " 用空格键来开关折叠
 " cursorline 属性
   set cursorline
-" set cursorcolumn                     " 当前列
-  highlight CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
+" set cursorcolumn                     " 当前列可以在color theme定义。
+"  highlight CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 " highlight CursorColumn cterm=NONE ctermbg=238 ctermfg=NONE guibg=NONE guifg=NONE
 
 " Always show the status line
@@ -157,7 +159,7 @@
       exec "!javac %"
       exec "!time java %<"
     elseif &filetype == 'sh'
-      :!time bash %
+u     :!time bash %
     elseif &filetype == 'python'
     " exec "!time python2.7 %"
     " exec "!python3 %"

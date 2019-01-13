@@ -6,6 +6,9 @@
 "  .vimrc                                                talen 2018/3/27
 "===============================================================================
 " 使用talen的个性化配置
-if filereadable(expand("$HOME/.vim/talen.vimrc"))
-   source $HOME/.vim/talen.vimrc
+let NICE_VIM_DIR="$HOME/.vim"           " where you vimrc files
+let VIMRC_PATH=NICE_VIM_DIR/talen.vimrc
+
+if filereadable(expand(VIMRC_PATH))
+   source VIMRC_PATH
 endif
