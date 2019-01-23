@@ -13,6 +13,7 @@
 # gits
   alias gitm='git commit -m'
   alias gits='git status -s'
+  alias svngit='f(){ svn checkout `echo $1 | sed "s/tree\/master/trunk/g"` ; unset -f f; }; f'
 
 # files
   alias countfiles='echo "total num: " && ls | wc -l && du -sh'
