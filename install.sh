@@ -1,5 +1,5 @@
 #!/bin/bash
-RES_NAME=/tmp/vim
+RES_NAME=/tmp/talen_vim
 VIM_FOLDER=~/.vim
 
 if [ -d $VIM_FOLDER ]; then

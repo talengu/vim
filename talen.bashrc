@@ -18,7 +18,7 @@
   alias countfiles='echo "total num: " && ls | wc -l && du -sh'
   alias ll='ls -htrlF --time-style="+%H:%M %Y/%m/%d"'
   alias dum='du -a -d 1 -m |sort -nr'
-  alias dug='df -h /dev/sdb5 && du -BG -d 1 --time |sort -nr'
+  alias dug='df -h && du -BG -d 1 --time |sort -nr'
 
 
 # man

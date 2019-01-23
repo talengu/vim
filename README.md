@@ -51,7 +51,7 @@ plugins I am using...
 - Use scripts
 
   ```
-  curl https://raw.githubusercontent.com/talengu/vim/master/install.sh
+  curl https://raw.githubusercontent.com/talengu/vim/master/install.sh | sh
   ```
 
 
