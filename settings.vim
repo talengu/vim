@@ -16,6 +16,13 @@
   map <C-j> <C-W>h
   map <C-k> <C-W>l
 
+  imap <c-u> <esc>viwUel
+  "c-u 来控制在insert model下面，使得整个单词大写。
+  " http://learnvimscriptthehardway.onefloweroneworld.com/chapters/05.html
+  " 高阶的控制方法。
+  " 
+  "
+
 "-------------------------------------------------------------------------------
 " 文件目录和文件查找
 
@@ -81,7 +88,8 @@
   Plugin 'yianwillis/vimcdoc'                       " vim-chinese-doc
   Plugin 'vim-utils/vim-man'                        " man pages
 
-" if OSX()
+"if OSX()
+"endif
 if 0                                               " for faster
   Plugin 'iamcco/mathjax-support-for-mkdp'
   Plugin 'iamcco/markdown-preview.vim'             " markdown插件
