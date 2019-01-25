@@ -21,7 +21,7 @@ else
 
   echo "Copy $RES_NAME to $VIM_FOLDER ."
   cp -r $RES_NAME $VIM_FOLDER
-  echo "source $VIM_FOLDER/talen.bashrc" >> ~/.bashrc
+  echo "source $VIM_FOLDER/bashrc" >> ~/.bashrc
   echo "set completion-ignore-case on" >> ~/.inputrc
   echo "success"
 fi
