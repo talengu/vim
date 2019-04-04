@@ -2,6 +2,9 @@
   HOME_BASHRC=~/.vim/bashrc
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
 
+# tmux
+  export TERM="screen-256color"
+
 # vimrc
   export TALEN_VIMRC=~/.vim/vimrc
   export VIMINIT="let &rtp='~/.vim,' . &rtp
@@ -30,7 +33,8 @@
   alias countfiles='echo "total num: " && ls | wc -l && du -sh'
   alias ll='ls -htrlF --time-style="+%H:%M %Y/%m/%d"'
   alias dum='du -a -d 1 -m |sort -nr'
-  alias dug='df -h && du -BG -d 1 --time |sort -nr'
+  #alias dug='df -h && du -BG -d 1 --time |sort -nr'
+  alias dug='du -BG -d 1 --time |sort -nr'
 
 
 # man
