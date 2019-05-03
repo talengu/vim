@@ -51,7 +51,7 @@
 " 缩进指示线
   Plugin 'Yggdroot/indentLine'
   Plugin 'tell-k/vim-autopep8'
-  Plugin 'jiangmiao/auto-pairs'
+  Plugin 'jiangmiao/auto-pairs' "有时候会影响copy
 
 " multiple selections for Vim
   Plugin 'terryma/vim-multiple-cursors'

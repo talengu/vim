@@ -42,6 +42,10 @@
 
   set t_Co=256 " 开启256色支持
   colorscheme talen_desert "onedark
+
+  "encoding set refer: https://blog.csdn.net/smstong/article/details/51279810
+  set encoding=utf-8
+  set termencoding=utf-8
   set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
   set conceallevel=0

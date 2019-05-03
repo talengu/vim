@@ -23,5 +23,6 @@ else
   cp -r $RES_NAME $VIM_FOLDER
   echo "source $VIM_FOLDER/bashrc" >> ~/.bashrc
   echo "set completion-ignore-case on" >> ~/.inputrc
+  echo "source-file ~/.vim/tmux.conf" >> ~/.tmux.conf
   echo "success"
 fi
