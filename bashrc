@@ -1,9 +1,14 @@
 # home
   HOME_BASHRC=~/.vim/bashrc
+  HOME_TMUXRC=~/.vim/tmux.conf
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
+  alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
 
 # tmux
   export TERM="screen-256color"
+  alias ta='tmux att'
+  alias hs='tmux split-window -h'
+  alias vs='tmux split-window -v'
 
 # vimrc
   export TALEN_VIMRC=~/.vim/vimrc

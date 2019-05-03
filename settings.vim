@@ -1,5 +1,5 @@
 "-------------------------------------------------------------------------------
-" key map
+"{ key map
 
   let mapleader=";"                    " kep map <Leader>
   map <leader>t :Tagbar<CR>
@@ -22,7 +22,7 @@
   " 高阶的控制方法。
   " 
   "
-
+"}
 "-------------------------------------------------------------------------------
 " 文件目录和文件查找
 
@@ -96,3 +96,6 @@ if 0                                               " for faster
   Plugin 'dhruvasagar/vim-table-mode'              " mardown table 的格式化
   source ~/.vim/cfgs/markdown_cfg.vim
 endif
+
+
+" vim: fdm=marker foldmarker={,} 
