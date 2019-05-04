@@ -48,6 +48,9 @@
 # pandoc `tohtml file.md` to html and so on 
   alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
   alias todomd='find ./ -name "*.md"| xargs grep TODO'
+  alias countlines='f(){ find . -name "*.$1" |xargs cat|grep -v ^$|wc -l; unset -f f; }; f'
+  alias findmd='f(){ find ./ -name "*.md" | xargs grep "$1"; unset -f f; }; f'
+
 
 # docker
   alias decho='echo ------------------------------------------------------------------------------------------------------------------------------------------------'
