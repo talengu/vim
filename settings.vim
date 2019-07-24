@@ -9,6 +9,7 @@
   map <leader>s :e ~/.vim/settings.vim<CR>
   map <leader>f *<CR>
   nnoremap <leader>b :YcmCompleter GoToDeclaration<CR>
+  nnoremap tr :let a=expand("<cword>")<Bar>exec '!translate ' .a<CR>
 
 " Smart way to move between windows
 " map <C-j> <C-W>j
