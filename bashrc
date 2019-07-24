@@ -24,7 +24,11 @@
 
 # gits
   alias gitm='git commit -m'
-  alias gits='git status -s'
+  alias gits='git status -s ./'
+  alias gitweb='git instaweb --httpd=webrick --port $GIT_WEB_PORT'
+  alias gitwebstop='git instaweb --httpd=webrick --stop'
+
+
 
 ## svngit https://github.com/talengu/vim/tree/master/colors
 ## svn get part folder of github project
