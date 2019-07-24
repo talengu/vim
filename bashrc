@@ -4,8 +4,19 @@
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
   alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
 
+# added  Miniconda3 or python
+# export PATH="/xxxxx/miniconda3/bin:$PATH"
+# export PYTHONPATH=/xxxx/xxx:$PYTHONPATH 
+
+# ps1
+#  export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$  "
+# offen  export PS1="\[\033[01;34m\]\w\[\033[00m\]\$ "
+#  export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
+
 # tmux
-  export TERM="screen-256color"
+  if [ `uname -s` != "Darwin" ];then
+    export TERM="screen-256color"
+  fi
   alias ta='tmux att'
   alias hs='tmux split-window -h'
   alias vs='tmux split-window -v'
@@ -18,9 +29,7 @@
   alias pi='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias pi3='pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias gpuwatch='watch -n 1 nvidia-smi'
-
-# autojump
-. /usr/share/autojump/autojump.sh
+ 
 
 # gits
   alias gitm='git commit -m'
@@ -40,20 +49,31 @@
 
 # files
   alias countfiles='echo "total num: " && ls | wc -l && du -sh'
-  alias ll='ls -htrlF --time-style="+%H:%M %Y/%m/%d"'
-  alias dum='du -a -d 1 -m |sort -nr'
-  #alias dug='df -h && du -BG -d 1 --time |sort -nr'
-  alias dug='du -BG -d 1 --time |sort -nr'
+  alias treehtml='tree -L 3 -H ./ -o tree.html'
+  alias treehere='tree -L 1 -C --dirsfirst'
+  if [ `uname -s` = "Darwin" ];then
+     alias ll='ls -ltrh'
+     alias dum='du -m -d 1|sort -nr'
+     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+  else
+     alias ll='ls -htrlF --time-style="+%H:%M %Y/%m/%d"'
+     alias dum='du -a -d 1 -m |sort -nr'
+     # alias dug='df -h && du -BG -d 1 --time |sort -nr'
+     alias dug='du -BG -d 1 --time |sort -nr'
+     [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
+  fi
 
+# find
+  alias todomd='find ./ -name "*.md"| xargs grep TODO'
+  alias countlines='f(){ find . -name "*.$1" |xargs cat|grep -v ^$|wc -l; unset -f f; }; f'
+  alias findmd='f(){ find ./ -name "*.md" | xargs grep "$1"; unset -f f; }; f'
 
 # man
   alias man='~/.vim/viman'
 
 # pandoc `tohtml file.md` to html and so on 
   alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
-  alias todomd='find ./ -name "*.md"| xargs grep TODO'
-  alias countlines='f(){ find . -name "*.$1" |xargs cat|grep -v ^$|wc -l; unset -f f; }; f'
-  alias findmd='f(){ find ./ -name "*.md" | xargs grep "$1"; unset -f f; }; f'
+# tex tlmgr install xxxx
 
 
 # docker
@@ -67,15 +87,23 @@
   alias dexe='f(){ docker exec -it "$1" /bin/bash; unset -f f; }; f'
   
 # translate to chinese use youdao
-  translate()
-  {
+translate(){
     word=$1
     [ "x$word" = "x" ] && return 1
     start=0;
     wget -q -O - "http://fanyi.youdao.com/openapi.do?keyfrom=youdao111&key=60638690&type=data&doctype=xml&version=1.1&q=$word" |\
     while read line;do if echo "$line" | grep "<explains>" >/dev/null; then start=1;fi; if test $start -eq 1 && echo "$line" | grep '<!\[CDATA\[' >/dev/null; then echo $line| sed -n 's/^.*CDATA\[\(.*\)\]].*$/\1/gp';fi; if echo $line | grep "</explains" >/dev/null; then break; fi;done
-  }
+}
+#export -f  translate
 
-  export -f  translate
+# os judge
+# sysOS=`uname -s`
+# if [ $sysOS == "Darwin" ];then
+# 	echo "I'm MacOS"
+# elif [ $sysOS == "Linux" ];then
+# 	echo "I'm Linux"
+# else
+# 	echo "Other OS: $sysOS"
+# fi
 
 
