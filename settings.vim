@@ -1,5 +1,5 @@
-"-------------------------------------------------------------------------------
-"{ key map
+"{-------------------------------key map----------------------------------------
+" key map
 
   let mapleader=";"                    " kep map <Leader>
   map <leader>t :Tagbar<CR>
@@ -24,7 +24,7 @@
   " 
   "
 "}
-"-------------------------------------------------------------------------------
+"{-------------------------------plugins----------------------------------------
 " 文件目录和文件查找
 
   Plugin 'itchyny/lightline.vim'
@@ -38,9 +38,7 @@
 
 " Plugin 'vim-scripts/winmanager'
 
-"-------------------------------------------------------------------------------
 " YouCompleteMe
-
   Plugin 'Valloric/YouCompleteMe'
 
 " Track the engine.
@@ -63,9 +61,7 @@
 " http://liuchengxu.org/posts/use-vim-as-a-python-ide/
   Plugin 'skywind3000/asyncrun.vim'
 
-"-------------------------------------------------------------------------------
-" Plugin configs
-
+" source plugin configs
   source ~/.vim/cfgs/lightline_cfg.vim
   source ~/.vim/cfgs/tagbar_cfg.vim
 
@@ -82,8 +78,8 @@
   source ~/.vim/cfgs/autopep8_cfg.vim
 
   source ~/.vim/cfgs/asyncrun_cfg.vim
-
-"-------------------------------------------------------------------------------
+"}
+"{-------------------------------others-----------------------------------
 " vim-help-doc and markdown editor
 
   Plugin 'yianwillis/vimcdoc'                       " vim-chinese-doc
@@ -97,6 +93,6 @@ if 0                                               " for faster
   Plugin 'dhruvasagar/vim-table-mode'              " mardown table 的格式化
   source ~/.vim/cfgs/markdown_cfg.vim
 endif
-
+"}
 
 " vim: fdm=marker foldmarker={,} 
