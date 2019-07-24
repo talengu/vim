@@ -65,4 +65,17 @@
   alias dstart='docker start'
   alias dstop='docker stop'
   alias dexe='f(){ docker exec -it "$1" /bin/bash; unset -f f; }; f'
+  
+# translate to chinese use youdao
+  translate()
+  {
+    word=$1
+    [ "x$word" = "x" ] && return 1
+    start=0;
+    wget -q -O - "http://fanyi.youdao.com/openapi.do?keyfrom=youdao111&key=60638690&type=data&doctype=xml&version=1.1&q=$word" |\
+    while read line;do if echo "$line" | grep "<explains>" >/dev/null; then start=1;fi; if test $start -eq 1 && echo "$line" | grep '<!\[CDATA\[' >/dev/null; then echo $line| sed -n 's/^.*CDATA\[\(.*\)\]].*$/\1/gp';fi; if echo $line | grep "</explains" >/dev/null; then break; fi;done
+  }
+
+  export -f  translate
+
 
