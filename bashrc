@@ -1,8 +1,10 @@
 # home
   HOME_BASHRC=~/.vim/bashrc
   HOME_TMUXRC=~/.vim/tmux.conf
+  FILE_YCM_INSTALL_PY=~/.vim/plugins/YouCompleteMe/install.py
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
   alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
+  alias ycminstall='python $FILE_YCM_INSTALL_PY'
 
 # added  Miniconda3 or python
 # export PATH="/xxxxx/miniconda3/bin:$PATH"
