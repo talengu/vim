@@ -59,6 +59,7 @@
      [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
   else
      alias ll='ls -htrlF --time-style="+%H:%M %Y/%m/%d"'
+     alias watchll='watch -n 1 "ls -htrlF --time-style=\"+%H:%M %Y/%m/%d\""'
      alias dum='du -a -d 1 -m |sort -nr'
      # alias dug='df -h && du -BG -d 1 --time |sort -nr'
      alias dug='du -BG -d 1 --time |sort -nr'
