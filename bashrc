@@ -76,6 +76,7 @@
 # pandoc `tohtml file.md` to html and so on 
   alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
 # tex tlmgr install xxxx
+# nbconvert path /usr/local/lib/python2.7/dist-packages/nbconvert/templates/latex
 
 
 # docker
