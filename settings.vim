@@ -40,6 +40,8 @@
 
 " YouCompleteMe
   Plugin 'Valloric/YouCompleteMe'
+" ./install.py --clang-completer
+" ./third_party/ycmd/clang_archives/libclang-8.0.0-x86_64-unknown-linux-gnu.tar.bz2
 
 " Track the engine.
   Plugin 'SirVer/ultisnips'

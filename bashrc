@@ -1,8 +1,10 @@
 # home
   HOME_BASHRC=~/.vim/bashrc
   HOME_TMUXRC=~/.vim/tmux.conf
+  FILE_YCM_INSTALL_PY=~/.vim/plugins/YouCompleteMe/install.py
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
   alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
+  alias ycminstall='python $FILE_YCM_INSTALL_PY'
 
 # added  Miniconda3 or python
 # export PATH="/xxxxx/miniconda3/bin:$PATH"
@@ -57,6 +59,7 @@
      [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
   else
      alias ll='ls -htrlF --time-style="+%H:%M %Y/%m/%d"'
+     alias watchll='watch -n 1 "ls -htrlF --time-style=\"+%H:%M %Y/%m/%d\""'
      alias dum='du -a -d 1 -m |sort -nr'
      # alias dug='df -h && du -BG -d 1 --time |sort -nr'
      alias dug='du -BG -d 1 --time |sort -nr'
@@ -74,6 +77,7 @@
 # pandoc `tohtml file.md` to html and so on 
   alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
 # tex tlmgr install xxxx
+# nbconvert path /usr/local/lib/python2.7/dist-packages/nbconvert/templates/latex
 
 
 # docker
