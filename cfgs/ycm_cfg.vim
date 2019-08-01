@@ -3,7 +3,8 @@
 " let mapleader=";"
 " nnoremap <leader>b :YcmCompleter GoToDeclaration<CR>
   highlight Pmenu ctermfg=2 ctermbg=3 guifg=#ffffff guibg=#0000ff
-  let g:ycm_global_ycm_extra_conf='~/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+ " let g:ycm_global_ycm_extra_conf='~/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+ let g:ycm_global_ycm_extra_conf='~/.vim/plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " let g:ycm_confirm_extra_conf=0
 
   set completeopt=longest,menu
