@@ -20,8 +20,8 @@
     export TERM="screen-256color"
   fi
   alias ta='tmux att'
-  alias hs='tmux split-window -h'
-  alias vs='tmux split-window -v'
+  alias ths='tmux split-window -h'
+  alias tvs='tmux split-window -v'
 
 # vimrc
   export TALEN_VIMRC=~/.vim/vimrc
