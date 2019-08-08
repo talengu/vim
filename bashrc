@@ -28,6 +28,7 @@
   export VIMINIT="let &rtp='~/.vim,' . &rtp
   so $TALEN_VIMRC"
 
+
   alias pi='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias pi3='pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias gpuwatch='watch -n 1 nvidia-smi'
@@ -67,9 +68,10 @@
   fi
 
 # find
-  alias todomd='find ./ -name "*.md"| xargs grep TODO'
+  alias todomd='find ./ -name "*.md"| xargs grep TODO > /tmp/find_tmp_log.log && vim /tmp/find_tmp_log.log'
   alias countlines='f(){ find . -name "*.$1" |xargs cat|grep -v ^$|wc -l; unset -f f; }; f'
-  alias findmd='f(){ find ./ -name "*.md" | xargs grep "$1"; unset -f f; }; f'
+  alias findmd='f(){ find ./ -name "*.md" | xargs grep "$1" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
+  alias findfile='f(){ find ./ -name "*.$1" | xargs grep "$2" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
 
 # man
   alias man='~/.vim/viman'
@@ -98,9 +100,19 @@ translate(){
     wget -q -O - "http://fanyi.youdao.com/openapi.do?keyfrom=youdao111&key=60638690&type=data&doctype=xml&version=1.1&q=$word" |\
     while read line;do if echo "$line" | grep "<explains>" >/dev/null; then start=1;fi; if test $start -eq 1 && echo "$line" | grep '<!\[CDATA\[' >/dev/null; then echo $line| sed -n 's/^.*CDATA\[\(.*\)\]].*$/\1/gp';fi; if echo $line | grep "</explains" >/dev/null; then break; fi;done
 }
-#export -f  translate
+# export -f  translate
 
-# os judge
+# git fun
+gitfun(){
+	author_git_name=$1;git log --author=$author_git_name --format="%ad" --date="format:%H"|awk '{n=$1+0;if(H[n]++>max)max=H[n]}END{for(i=0;i<24;i++){printf"%02d -%5d ",i,H[i];for(n=0;n<H[i]/max*50;n++){printf "*"}print""}}'
+		
+}
+
+tovim(){ $1 > /tmp/to_vim.txt && vim /tmp/to_vim.txt;}
+alias togitdiff='tovim "git diff" git_diff'
+
+
+#os judge
 # sysOS=`uname -s`
 # if [ $sysOS == "Darwin" ];then
 # 	echo "I'm MacOS"
