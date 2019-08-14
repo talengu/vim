@@ -28,6 +28,9 @@
   export VIMINIT="let &rtp='~/.vim,' . &rtp
   so $TALEN_VIMRC"
 
+  alias novim="mv $TALEN_VIMRC $TALEN_VIMRC.bak"
+  alias usevim="mv $TALEN_VIMRC.bak $TALEN_VIMRC"
+
 
   alias pi='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias pi3='pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple'
@@ -110,6 +113,7 @@ gitfun(){
 
 tovim(){ $1 > /tmp/to_vim.txt && vim /tmp/to_vim.txt;}
 alias togitdiff='tovim "git diff" git_diff'
+alias togitlog='tovim "git log" git_log'
 
 
 #os judge
