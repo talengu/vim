@@ -12,6 +12,10 @@
 
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
+" You can define own snips in cfgs/snips
+ let g:UltiSnipsSnippetDirectories=["UltiSnips", "../../cfgs/snips"]
+ "
+
  function! g:UltiSnips_Complete()
    call UltiSnips#ExpandSnippet()
    if g:ulti_expand_res == 0
