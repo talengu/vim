@@ -1,0 +1,19 @@
+# This file contains snippets that are always defined. I personally
+# have snippets for signatures and often needed texts
+
+# sligthly lower priority than everything else since specialized versions
+# should overwrite. The user needs to adjust her priority in her snippets to
+# ~-55 so that other filetypes will still overwrite.
+priority -20
+
+global !p
+from vimsnippets import foldmarker, make_box, get_comment_format
+endglobal
+
+
+snippet todo "TODO comment" bw
+`!p snip.rv=get_comment_format()[0]` TODO: <`!v strftime('%Y/%m/%d')`, `whoami`> ${2:Task Define} `!p snip.rv=get_comment_format()[2]`
+endsnippet
+
+
+# vim:ft=snippets:

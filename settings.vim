@@ -12,6 +12,10 @@
   nnoremap tr :let a=expand("<cword>")<Bar>exec '!translate ' .a<CR>
   map <leader>p :set paste<CR>  " fix the paste bug
 
+  "set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+  "set list
+  "set listchars=tab:␉·,nbsp:⎵,space:‧
+
 " Smart way to move between windows
 " map <C-j> <C-W>j
 " map <C-k> <C-W>k
