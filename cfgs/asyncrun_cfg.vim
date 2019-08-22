@@ -3,6 +3,8 @@
   nnoremap <leader>r :call <SID>compile_and_run()<CR>
 " map <leader>r :call <SID>compile_and_run()<CR>
 
+" 仅剩quickfix的时候关闭quickfix 
+  autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 
   augroup SPACEVIM_ASYNCRUN
       autocmd!
