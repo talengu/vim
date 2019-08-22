@@ -15,7 +15,8 @@
   function! s:compile_and_run()
       exec 'w'
       if &filetype == 'c'
-          exec "AsyncRun! gcc % -o %<; time ./%<"
+          "exec "AsyncRun! gcc % -o %<; time ./%<"
+          exec "AsyncRun! mkdir -p bin; gcc % -o bin/%<; ./bin/%<"
       elseif &filetype == 'cpp'
          "exec "AsyncRun! g++ -std=c++11 % -o bin/%<; time ./bin/%<"
 		 exec "AsyncRun! mkdir -p bin; g++ -std=c++11 % -o bin/%<; ./bin/%<"
@@ -24,6 +25,7 @@
       elseif &filetype == 'sh'
          exec "AsyncRun! time bash %"
       elseif &filetype == 'python'
-         exec "AsyncRun! time python3 %"
+         "exec "AsyncRun! time python3 %"
+         exec "AsyncRun! python3 %"
       endif
   endfunction

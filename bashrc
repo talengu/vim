@@ -72,10 +72,10 @@
   fi
 
 # find
-  alias todomd='find ./ -name "*.md"| xargs grep TODO > /tmp/find_tmp_log.log && vim /tmp/find_tmp_log.log'
-  alias countlines='f(){ find . -name "*.$1" |xargs cat|grep -v ^$|wc -l; unset -f f; }; f'
-  alias findmd='f(){ find ./ -name "*.md" | xargs grep "$1" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
-  alias findfile='f(){ find ./ -name "*.$1" | xargs grep "$2" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
+  alias todomd='find ./ -name "*.md" -print0 | xargs -0 grep TODO > /tmp/find_tmp_log.log && vim /tmp/find_tmp_log.log'
+  alias countlines='f(){ find . -name "*.$1" -print0 | xargs -0 cat|grep -v ^$|wc -l; unset -f f; }; f'
+  alias findmd='f(){ find ./ -name "*.md" -print0 | xargs -0 grep "$1" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
+  alias findfile='f(){ find ./ -name "*.$1" -type f -print0 | xargs -0 grep "$2" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
 
 # man
   alias man='~/.vim/viman'
