@@ -4,7 +4,7 @@
   FILE_YCM_INSTALL_PY=~/.vim/plugins/YouCompleteMe/install.py
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
   alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
-  alias ycminstall='python $FILE_YCM_INSTALL_PY'
+  alias ycminstall='python3 $FILE_YCM_INSTALL_PY'
 #  alias ycminstallcpp='python3 $FILE_YCM_INSTALL_PY --clang-completer --system-libclang'
 
 # added  Miniconda3 or python
