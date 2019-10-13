@@ -11,38 +11,38 @@ This is a vimrc project.  [settings.vim](settings.vim) is for vim and plugins co
 
 plugins I am using...
 
-| Type   | Vundle                                   | cfgs                                     |
-| ------ | ---------------------------------------- | ---------------------------------------- |
-| THEMES |                                          |                                          |
-|        | Plugin 'itchyny/lightline.vim'           | [cfg](cfgs/lightline_cfg.vim)            |
-|        | Plugin 'scrooloose/nerdtree'             | [cfg](cfgs/nerdtree_cfg.vim)             |
-|        | Plugin 'Xuyuanp/nerdtree-git-plugin'     |                                          |
-|        | Plugin 'majutsushi/tagbar'               | [cfg](cfgs/tagbar_cfg.vim)               |
-|        | Plugin 'tpope/vim-fugitive'              | [cfg](cfgs/fugitive_cfg.vim)             |
-|        | Plugin 'Plugin 'kien/ctrlp.vim'          | [cfg](cfgs/ctrlp_cfg.vim)                |
-| CODES  |                                          |                                          |
-|        | Plugin 'Valloric/YouCompleteMe'          | [cfg](cfgs/ycm_cfg.vim)                  |
-|        | Plugin 'SirVer/ultisnips'                |                                          |
-|        | Plugin 'honza/vim-snippets'              |                                          |
-|        |                                          |                                          |
-|        | Plugin 'Yggdroot/indentLine'             |                                          |
-|        | Plugin 'tell-k/vim-autopep8'             | [cfg](cfgs/autopep8_cfg.vim)             |
-|        | Plugin 'jiangmiao/auto-pairs'            |                                          |
-|        | Plugin 'terryma/vim-multiple-cursors'    | [cfg](cfgs/vim-multiple-cursors_cfg.vim) |
-| RUNS   |                                          |                                          |
-|        | Plugin 'skywind3000/asyncrun.vim'        | [cfg](cfgs/asyncrun_cfg.vim)             |
-| HELPS  |                                          |                                          |
-|        | Plugin 'yianwillis/vimcdoc'              |                                          |
-|        | Plugin 'vim-utils/vim-man'               |                                          |
-| DOCS   |                                          |                                          |
-|        | Plugin 'iamcco/mathjax-support-for-mkdp' | [cfg](cfgs/markdown_cfg.vim)             |
-|        | Plugin 'iamcco/markdown-preview.vim'     |                                          |
-|        | Plugin 'dhruvasagar/vim-table-mode'      |                                          |
-|        |                                          |                                          |
-|        |                                          |                                          |
-|        |                                          |                                          |
-|        |                                          |                                          |
-|        |                                          |                                          |
+| Type   | Vundle                                   | cfgs                                          |
+| ------ | ---------------------------------------- | --------------------------------------------- |
+| THEMES |                                          |                                               |
+|        | Plugin 'itchyny/lightline.vim'           | [cfg](cfgs/lightline_cfg.vim)                 |
+|        | Plugin 'scrooloose/nerdtree'             | [cfg](cfgs/nerdtree_cfg.vim)                  |
+|        | Plugin 'Xuyuanp/nerdtree-git-plugin'     |                                               |
+|        | Plugin 'majutsushi/tagbar'               | [cfg](cfgs/tagbar_cfg.vim)                    |
+|        | Plugin 'tpope/vim-fugitive'              | [cfg](cfgs/fugitive_cfg.vim)                  |
+|        | Plugin 'Plugin 'kien/ctrlp.vim'          | [cfg](cfgs/ctrlp_cfg.vim)                     |
+| CODES  |                                          |                                               |
+|        | Plugin 'Valloric/YouCompleteMe'          | [cfg](cfgs/ycm_cfg.vim)                       |
+|        | Plugin 'SirVer/ultisnips'                | [cfg](cfgs/snips_cfg.vim) [snips](cfgs/snips) |
+|        | Plugin 'honza/vim-snippets'              |                                               |
+|        |                                          |                                               |
+|        | Plugin 'Yggdroot/indentLine'             |                                               |
+|        | Plugin 'tell-k/vim-autopep8'             | [cfg](cfgs/autopep8_cfg.vim)                  |
+|        | Plugin 'jiangmiao/auto-pairs'            |                                               |
+|        | Plugin 'terryma/vim-multiple-cursors'    | [cfg](cfgs/vim-multiple-cursors_cfg.vim)      |
+| RUNS   |                                          |                                               |
+|        | Plugin 'skywind3000/asyncrun.vim'        | [cfg](cfgs/asyncrun_cfg.vim)                  |
+| HELPS  |                                          |                                               |
+|        | Plugin 'yianwillis/vimcdoc'              |                                               |
+|        | Plugin 'vim-utils/vim-man'               |                                               |
+| DOCS   |                                          |                                               |
+|        | Plugin 'iamcco/mathjax-support-for-mkdp' | [cfg](cfgs/markdown_cfg.vim)                  |
+|        | Plugin 'iamcco/markdown-preview.vim'     |                                               |
+|        | Plugin 'dhruvasagar/vim-table-mode'      |                                               |
+|        |                                          |                                               |
+|        |                                          |                                               |
+|        |                                          |                                               |
+|        |                                          |                                               |
+|        |                                          |                                               |
 
 
 
@@ -56,6 +56,10 @@ plugins I am using...
 
 
 - Step by step
+
+  
+
+  
 
 ## Key-maps
 
