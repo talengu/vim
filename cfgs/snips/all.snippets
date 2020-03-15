@@ -12,7 +12,7 @@ endglobal
 
 
 snippet todo "TODO comment" bw
-`!p snip.rv=get_comment_format()[0]` TODO: <`!v strftime('%Y/%m/%d')`, `whoami`> ${2:Task Define} `!p snip.rv=get_comment_format()[2]`
+`!p snip.rv=get_comment_format()[0]` TODO: <`whoami`, `!v strftime('%Y/%m/%d')`> ${2:Task Define} `!p snip.rv=get_comment_format()[2]`
 endsnippet
 
 

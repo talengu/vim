@@ -54,7 +54,7 @@ function! LightLineGitversion()
   elseif fullname =~? 'fugitive://.*/\.git//3/.*'
       let gitversion = 'git merge'
   elseif &diff == 1
-      let gitversion = 'working copy'
+      let gitversion = 'working'
   endif
   return gitversion
 endfunction
