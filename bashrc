@@ -35,8 +35,8 @@
 
   alias pi='pip install -i https://pypi.tuna.tsinghua.edu.cn/simple'
   alias pi3='pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple'
-  alias gpuwatch='watch -n 1 nvidia-smi'
- 
+# alias gpuwatch='watch -n 1 nvidia-smi'
+  alias gpuwatch='nvidia-smi -l'
 
 # gits
   alias gitm='git commit -m'
@@ -48,7 +48,6 @@
 
 ## svngit https://github.com/talengu/vim/tree/master/colors
 ## svn get part folder of github project
-  alias svngit='f(){ svn checkout `echo $1 | sed "s/tree\/master/trunk/g"` ; unset -f f; }; f'
  
 ## gitinit name
   dot_git_root=~/git/
