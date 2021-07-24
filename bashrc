@@ -94,6 +94,9 @@
   alias dstart='docker start'
   alias dstop='docker stop'
   alias dexe='f(){ docker exec -it "$1" /bin/bash; unset -f f; }; f'
+# docker 
+  alias dcp='docker-compose up -d'
+  alias dcs='docker-compose stop'
   
 # translate to chinese use youdao
 translate(){

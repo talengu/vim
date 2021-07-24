@@ -1,0 +1,58 @@
+# Markdown snippets
+# more in vim-snippets/snippets/markdown.snippets
+
+priority -30
+
+snippet head "Hexo Header" b
+---
+title: ${1:Title}
+date: `!v strftime('%Y-%m-%d %H:%M:%S')`
+updated: `!v strftime('%Y-%m-%d %H:%M:%S')`
+categories:
+  - ${2}
+tags:
+  - ${3}
+comments: true
+copyright: true
+math: false
+---
+
+**${4:Intro}**
+${0:...}
+
+<!-- more -->
+
+endsnippet
+
+
+snippet more "Hexo more" b
+<!-- more -->
+endsnippet
+
+
+snippet up "Hexo updated time" b
+updated: `!v strftime('%Y-%m-%d %H:%M:%S')`
+endsnippet
+
+
+snippet cimg "Hexo html image" b
+<center><img src="http://www.stats.gov.cn/tjsj/zxfb/202002/W020200228491461098230_r75.png" width="60%">
+<div> Fig1 2019 GDP</div>
+</center>
+endsnippet
+
+snippet refs "Hexo reference" b
+---
+**${1:Reference}**
+
+[^link]: author title  2010-01-01
+
+endsnippet
+
+snippet ref "Hexo reference" b
+[^${1:tip}]: ${2:author} ${3:title}  2010-01-01
+endsnippet
+
+
+
+# vim:ft=snippets:
