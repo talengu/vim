@@ -41,6 +41,8 @@
 # gits
   alias gitm='git commit -m'
   alias gits='git status -s ./'
+  alias gitpull='git pull'
+  alias gitpush='git push'
   alias gitweb='git instaweb --httpd=webrick --port $GIT_WEB_PORT'
   alias gitwebstop='git instaweb --httpd=webrick --stop'
 
