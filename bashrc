@@ -46,6 +46,12 @@
   alias gitweb='git instaweb --httpd=webrick --port $GIT_WEB_PORT'
   alias gitwebstop='git instaweb --httpd=webrick --stop'
 
+  alias gitsname='gits |python ~/.vim/gitsname.py'
+  #alias gitsname='gits && gits |python3 ~/.vim/gitsname.py |xclip -selection clipboard'
+  # apt install xclip
+
+
+
 
 
 ## svngit https://github.com/talengu/vim/tree/master/colors
@@ -95,7 +101,7 @@
   alias drm='docker rm'
   alias dstart='docker start'
   alias dstop='docker stop'
-  alias dexe='f(){ docker exec -it "$1" /bin/bash; unset -f f; }; f'
+  alias dexe='f(){ docker exec -it "$1" bash; unset -f f; }; f'
 # docker 
   alias dcp='docker-compose up -d'
   alias dcs='docker-compose stop'
@@ -120,6 +126,11 @@ tovim(){ $1 > /tmp/to_vim.txt && vim /tmp/to_vim.txt;}
 alias togitdiff='tovim "git diff" git_diff'
 alias togitlog='tovim "git log" git_log'
 
+# make alias
+alias grun='f(){ gcc -m64 "$1" && ./a.out; unset if f;   }; f'
+alias grun32='f(){ gcc -m32 "$1" && ./a.out; unset if f;   }; f'
+alias mk='f(){ make $1> build.log 2>&1; unset -f f;   }; f'
+alias watchlog='watch -n 1 "tail -n 13 build.log"'
 
 #os judge
 # sysOS=`uname -s`
@@ -130,5 +141,4 @@ alias togitlog='tovim "git log" git_log'
 # else
 # 	echo "Other OS: $sysOS"
 # fi
-
 
