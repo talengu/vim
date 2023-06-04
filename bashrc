@@ -12,9 +12,11 @@
 # export PYTHONPATH=/xxxx/xxx:$PYTHONPATH 
 
 # ps1
-#  export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$  "
-# offen  export PS1="\[\033[01;34m\]\w\[\033[00m\]\$ "
-#  export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
+ #export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$  "
+#export PS1="\[\033[01;34m\]\w\[\033[00m\]\$ "
+ #export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
+export PS1="\[\e]0;\$(date +'%Y-%m-%d %H:%M')   \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$"
+#export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 
 # tmux
   if [ `uname -s` != "Darwin" ];then
@@ -46,6 +48,9 @@
   alias gitweb='git instaweb --httpd=webrick --port $GIT_WEB_PORT'
   alias gitwebstop='git instaweb --httpd=webrick --stop'
 
+# github use git commit --amend
+# https://docs.github.com/zh/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
+  alias gitpush_amend='git push --force-with-lease origin master'
 
 
 ## svngit https://github.com/talengu/vim/tree/master/colors
@@ -96,6 +101,7 @@
   alias dstart='docker start'
   alias dstop='docker stop'
   alias dexe='f(){ docker exec -it "$1" /bin/bash; unset -f f; }; f'
+  alias dexesh='f(){ docker exec -it "$1" /bin/sh; unset -f f; }; f'
 # docker 
   alias dcp='docker-compose up -d'
   alias dcs='docker-compose stop'
