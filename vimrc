@@ -56,7 +56,7 @@
   set number                           " 设置行号
   syntax on                            " 语法高亮
   set ic                               " 忽略大小写
-  set mouse+=a                         " 使用鼠标
+  "set mouse+=a                         " 使用鼠标
   set clipboard+=unnamed
   set autoindent                       " 自动缩进
   set tabstop=4                        " Tab键的宽度
