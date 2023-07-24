@@ -48,6 +48,11 @@
 " ./install.py --clang-completer
 " ./third_party/ycmd/clang_archives/libclang-8.0.0-x86_64-unknown-linux-gnu.tar.bz2
 
+" gtags 自动跳转工具
+" https://zhuanlan.zhihu.com/p/36279445/
+"  Plugin 'ludovicchabant/vim-gutentags'
+"  Plugin 'skywind3000/gutentags_plus'
+
 " Track the engine.
   Plugin 'SirVer/ultisnips'
 
@@ -73,6 +78,7 @@
   source ~/.vim/cfgs/tagbar_cfg.vim
 
   source ~/.vim/cfgs/ycm_cfg.vim
+"  source ~/.vim/cfgs/gutentags_plus_cfg.vim
   source ~/.vim/cfgs/snips_cfg.vim
 
   source ~/.vim/cfgs/fugitive_cfg.vim

@@ -29,6 +29,8 @@ plugins I am using...
 |        | Plugin 'tell-k/vim-autopep8'             | [cfg](cfgs/autopep8_cfg.vim)                  |
 |        | Plugin 'jiangmiao/auto-pairs'            |                                               |
 |        | Plugin 'terryma/vim-multiple-cursors'    | [cfg](cfgs/vim-multiple-cursors_cfg.vim)      |
+|        | Plugin 'ludovicchabant/vim-gutentags'    | [cfg](cfgs/gutentags_plus_cfg.vim)            |
+|        | Plugin 'skywind3000/gutentags_plus'    |                                               |
 | RUNS   |                                          |                                               |
 |        | Plugin 'skywind3000/asyncrun.vim'        | [cfg](cfgs/asyncrun_cfg.vim)                  |
 | HELPS  |                                          |                                               |

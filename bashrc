@@ -2,6 +2,7 @@
   HOME_BASHRC=~/.vim/bashrc
   HOME_TMUXRC=~/.vim/tmux.conf
   FILE_YCM_INSTALL_PY=~/.vim/plugins/YouCompleteMe/install.py
+  . ~/.vim/z.sh
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
   alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
   alias ycminstall='python3 $FILE_YCM_INSTALL_PY'
@@ -15,12 +16,12 @@
  #export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$  "
 #export PS1="\[\033[01;34m\]\w\[\033[00m\]\$ "
  #export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
-export PS1="\[\e]0;\$(date +'%Y-%m-%d %H:%M')   \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$"
 #export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 
 # tmux
   if [ `uname -s` != "Darwin" ];then
     export TERM="screen-256color"
+	  export PS1="\[\e]0;\$(date +'%Y-%m-%d %H:%M')   \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$"
   fi
   alias ta='tmux att'
   alias ths='tmux split-window -h'
@@ -42,7 +43,7 @@ export PS1="\[\e]0;\$(date +'%Y-%m-%d %H:%M')   \w\a\]${debian_chroot:+($debian_
 
 # gits
   alias gitm='git commit -m'
-  alias gits='git status -s ./'
+  alias gits='git status -s'
   alias gitpull='git pull'
   alias gitpush='git push'
   alias gitweb='git instaweb --httpd=webrick --port $GIT_WEB_PORT'
