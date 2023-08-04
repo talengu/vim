@@ -138,8 +138,10 @@ alias togitlog='tovim "git log" git_log'
 # make alias
 alias grun='f(){ gcc -m64 "$1" && ./a.out; unset if f;   }; f'
 alias grun32='f(){ gcc -m32 "$1" && ./a.out; unset if f;   }; f'
-alias mk='f(){ make $1> build.log 2>&1; unset -f f;   }; f'
-alias watchlog='watch -n 1 "tail -n 13 build.log"'
+# alias mk='f(){ make $1> build.log 2>&1; unset -f f;   }; f'
+# alias watchlog='watch -n 1 "tail -n 13 build.log"'
+alias mk='f(){ make $1> build_$1.log 2>&1; unset -f f;  }; f'
+alias watchlog='watch -n 1 "grep -rsn 'error:' *.log;ls -t | head -1 | xargs -n 1 tail -n 13"'
 
 #os judge
 # sysOS=`uname -s`
