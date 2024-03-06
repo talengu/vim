@@ -1,4 +1,11 @@
-# home
+#                       _____      __         _   _                                                              
+#                      (_   _)     \ \       | \ | |
+#                        | |/  \/ /  > \ / __)     |
+#                        | ( ()  <  / ^ \> _)| |\  |
+#                        |_|\__/\_\/_/ \_\___)_| \_|
+#  .bashrc                                                            2017/4/27
+#===============================================================================
+# =>home
   HOME_BASHRC=~/.vim/bashrc
   HOME_TMUXRC=~/.vim/tmux.conf
   FILE_YCM_INSTALL_PY=~/.vim/plugins/YouCompleteMe/install.py
@@ -6,19 +13,19 @@
   alias vimbashrc='vim $HOME_BASHRC && source $HOME_BASHRC'
   alias vimtmuxrc='vim $HOME_TMUXRC && echo "Tip: leader +r to reload tmux.conf"'
   alias ycminstall='python3 $FILE_YCM_INSTALL_PY'
-#  alias ycminstallcpp='python3 $FILE_YCM_INSTALL_PY --clang-completer --system-libclang'
+# alias ycminstallcpp='python3 $FILE_YCM_INSTALL_PY --clang-completer --system-libclang'
 
-# added  Miniconda3 or python
+# =>added  Miniconda3 or python
 # export PATH="/xxxxx/miniconda3/bin:$PATH"
 # export PYTHONPATH=/xxxx/xxx:$PYTHONPATH 
 
-# ps1
- #export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$  "
-#export PS1="\[\033[01;34m\]\w\[\033[00m\]\$ "
- #export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
-#export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
+# =>ps1
+# export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$  "
+# export PS1="\[\033[01;34m\]\w\[\033[00m\]\$ "
+# export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
+# export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 
-# tmux
+# =>tmux
   if [ `uname -s` != "Darwin" ];then
     export TERM="screen-256color"
 	  export PS1="\[\e]0;\$(date +'%Y-%m-%d %H:%M')   \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$"
@@ -27,7 +34,7 @@
   alias ths='tmux split-window -h'
   alias tvs='tmux split-window -v'
 
-# vimrc
+# =>vimrc
   export TALEN_VIMRC=~/.vim/vimrc
   export VIMINIT="let &rtp='~/.vim,' . &rtp
   so $TALEN_VIMRC"
@@ -41,7 +48,7 @@
 # alias gpuwatch='watch -n 1 nvidia-smi'
   alias gpuwatch='nvidia-smi -l'
 
-# gits
+# =>gits
   alias gitm='git commit -m'
   alias gits='git status -s'
   alias gitpull='git pull'
@@ -52,24 +59,27 @@
 # github use git commit --amend
 # https://docs.github.com/zh/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
   alias gitpush_amend='git push --force-with-lease origin master'
-  
+
+# =>svn get part folder of github project
+  alias svngit='f(){ svn checkout `echo $1 | sed "s/tree\/master/trunk/g"` ; unset -f f; }; f'
+# svngit https://github.com/talengu/vim/tree/master/colors
+
+ 
+# gitinit name 通过ssh 管理git
+  dot_git_root=~/git/
+  alias gitinit='f(){ git init --bare $dot_git_root"$1".git; unset -f f; }; f'
+# alias githri='f(){ git clone ssh://name@192.168.1.100:8100/data/name/git/"$1".git; unset -f f; }; f'
+# alias gitremotehri='f(){ git remote add origin ssh://name@192.168.1.100:8100/~/git/"$1".git; unset -f f; }; f'
+    
+
+
 # apt install xclip
 # alias gitsname='gits && gits |python3 ~/.vim/gitsname.py |xclip -selection clipboard'
   alias gitsname='gits |python ~/.vim/gitsname.py'
+  alias path_site_package='python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"'
   
 
-
-
-
-
-## svngit https://github.com/talengu/vim/tree/master/colors
-## svn get part folder of github project
- 
-## gitinit name
-  dot_git_root=~/git/
-  alias gitinit='f(){ git init --bare $dot_git_root"$1".git; unset -f f; }; f'
-
-# files
+# =>files
   alias countfiles='echo "total num: " && ls | wc -l && du -sh'
   alias treehtml='tree -L 3 -H ./ -o tree.html'
   alias treehere='tree -L 1 -C --dirsfirst'
@@ -86,7 +96,7 @@
      [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
   fi
 
-# find
+# =>find
   alias todomd='find ./ -name "*.md" -print0 | xargs -0 grep TODO > /tmp/find_tmp_log.log && vim /tmp/find_tmp_log.log'
   alias countlines='f(){ find . -name "*.$1" -print0 | xargs -0 cat|grep -v ^$|wc -l; unset -f f; }; f'
   alias findmd='f(){ find ./ -name "*.md" -print0 | xargs -0 grep "$1" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
@@ -141,7 +151,7 @@ alias grun32='f(){ gcc -m32 "$1" && ./a.out; unset if f;   }; f'
 alias mk='f(){ make $1> build.log 2>&1; unset -f f;   }; f'
 alias watchlog='watch -n 1 "tail -n 13 build.log"'
 
-#os judge
+# OS judge
 # sysOS=`uname -s`
 # if [ $sysOS == "Darwin" ];then
 # 	echo "I'm MacOS"
@@ -151,3 +161,19 @@ alias watchlog='watch -n 1 "tail -n 13 build.log"'
 # 	echo "Other OS: $sysOS"
 # fi
 
+# proxy
+# alias proxy='export http_proxy=127.0.0.1:1080;export https_proxy=$http_proxy'
+# alias unproxy='unset http_proxy;unset https_proxy'
+
+
+# rsync 通过ssh同步
+# RS_PORT=22
+# RS_IP=192.168.1.100
+# RS_UNAME=ubuntu
+# alias putone='f(){ rsync -Pauz -e "ssh -p $RS_PORT" "$1" $RS_UNAME@$RS_IP:~/"$1"; unset -f f; }; f'
+# alias getone='f(){ rsync -Pauz -e "ssh -p $RS_PORT" $RS_UNAME@$RS_IP:~/"$1" "$1"; unset -f f; }; f'
+
+
+# youtube-dl
+#  alias youtube-dl='youtube-dl --proxy socks5://127.0.0.1:1080'
+#  alias youtube-mp3='youtube-dl -x --audio-format mp3 '
