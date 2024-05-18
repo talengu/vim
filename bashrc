@@ -153,6 +153,12 @@ alias grun32='f(){ gcc -m32 "$1" && ./a.out; unset if f;   }; f'
 alias mk='f(){ make $1> build_$1.log 2>&1; unset -f f;  }; f'
 alias watchlog='watch -n 1 "grep -rsn 'error:' *.log;ls -t | head -1 | xargs -n 1 tail -n 13"'
 
+# debian禁止自动挂起
+# ref:https://wiki.debian.org/Suspend
+# sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+# 恢复
+# sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
 # OS judge
 # sysOS=`uname -s`
 # if [ $sysOS == "Darwin" ];then
