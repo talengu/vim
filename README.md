@@ -6,40 +6,44 @@ This is a vimrc project.  [settings.vim](settings.vim) is for vim and plugins co
 ![screen_ctrp](README.img/screen_ctrp.png)
 
 
+## Features
+Now use [vim-plug](https://github.com/junegunn/vim-plug) Vim plugin manager 2025/01/22
 
 ## My plugins
 
 plugins I am using...
 
-| Type   | Vundle                                   | cfgs                                          |
+| Type   | vim-plug                                 | cfgs                                          |
 | ------ | ---------------------------------------- | --------------------------------------------- |
+| MANAGER|                                          |                                               |
+|        | junegunn/vim-plug                        | [plug.vim](cfgs/plug.vim)                     |
 | THEMES |                                          |                                               |
-|        | Plugin 'itchyny/lightline.vim'           | [cfg](cfgs/lightline_cfg.vim)                 |
-|        | Plugin 'scrooloose/nerdtree'             | [cfg](cfgs/nerdtree_cfg.vim)                  |
-|        | Plugin 'Xuyuanp/nerdtree-git-plugin'     |                                               |
-|        | Plugin 'majutsushi/tagbar'               | [cfg](cfgs/tagbar_cfg.vim)                    |
-|        | Plugin 'tpope/vim-fugitive'              | [cfg](cfgs/fugitive_cfg.vim)                  |
-|        | Plugin 'Plugin 'kien/ctrlp.vim'          | [cfg](cfgs/ctrlp_cfg.vim)                     |
+|        | Plug 'itchyny/lightline.vim'             | [cfg](cfgs/lightline_cfg.vim)                 |
+|        | Plug 'scrooloose/nerdtree'               | [cfg](cfgs/nerdtree_cfg.vim)                  |
+|        | Plug 'Xuyuanp/nerdtree-git-plugin'       |                                               |
+|        | Plug 'majutsushi/tagbar'                 | [cfg](cfgs/tagbar_cfg.vim)                    |
+|        | Plug 'tpope/vim-fugitive'                | [cfg](cfgs/fugitive_cfg.vim)                  |
+|        | Plug 'Plugin 'kien/ctrlp.vim'            | [cfg](cfgs/ctrlp_cfg.vim)                     |
 | CODES  |                                          |                                               |
-|        | Plugin 'Valloric/YouCompleteMe'          | [cfg](cfgs/ycm_cfg.vim)                       |
-|        | Plugin 'SirVer/ultisnips'                | [cfg](cfgs/snips_cfg.vim) [snips](cfgs/snips) |
-|        | Plugin 'honza/vim-snippets'              |                                               |
+|        | Plug 'Valloric/YouCompleteMe'            | [cfg](cfgs/ycm_cfg.vim)                       |
+|        | Plug 'SirVer/ultisnips'                  | [cfg](cfgs/snips_cfg.vim) [snips](cfgs/snips) |
+|        | Plug 'honza/vim-snippets'                |                                               |
 |        |                                          |                                               |
-|        | Plugin 'Yggdroot/indentLine'             |                                               |
-|        | Plugin 'tell-k/vim-autopep8'             | [cfg](cfgs/autopep8_cfg.vim)                  |
-|        | Plugin 'jiangmiao/auto-pairs'            |                                               |
-|        | Plugin 'terryma/vim-multiple-cursors'    | [cfg](cfgs/vim-multiple-cursors_cfg.vim)      |
-|        | Plugin 'ludovicchabant/vim-gutentags'    | [cfg](cfgs/gutentags_plus_cfg.vim)            |
-|        | Plugin 'skywind3000/gutentags_plus'    |                                               |
+|        | Plug 'Yggdroot/indentLine'               |                                               |
+|        | Plug 'tell-k/vim-autopep8'               | [cfg](cfgs/autopep8_cfg.vim)                  |
+|        | Plug 'jiangmiao/auto-pairs'              |                                               |
+|        | Plug 'terryma/vim-multiple-cursors'      | [cfg](cfgs/vim-multiple-cursors_cfg.vim)      |
+|        | Plug 'ludovicchabant/vim-gutentags'      | [cfg](cfgs/gutentags_plus_cfg.vim)            |
+|        | Plug 'skywind3000/gutentags_plus'        |                                               |
 | RUNS   |                                          |                                               |
-|        | Plugin 'skywind3000/asyncrun.vim'        | [cfg](cfgs/asyncrun_cfg.vim)                  |
+|        | Plug 'skywind3000/asyncrun.vim'          | [cfg](cfgs/asyncrun_cfg.vim)                  |
 | HELPS  |                                          |                                               |
-|        | Plugin 'yianwillis/vimcdoc'              |                                               |
-|        | Plugin 'vim-utils/vim-man'               |                                               |
+|        | Plug 'yianwillis/vimcdoc'                |                                               |
+|        | Plug 'vim-utils/vim-man'                 |                                               |
 | DOCS   |                                          |                                               |
-|        | Plugin 'iamcco/mathjax-support-for-mkdp' | [cfg](cfgs/markdown_cfg.vim)                  |
-|        | Plugin 'iamcco/markdown-preview.vim'     |                                               |
-|        | Plugin 'dhruvasagar/vim-table-mode'      |                                               |
+|        | Plug 'iamcco/mathjax-support-for-mkdp'   | [cfg](cfgs/markdown_cfg.vim)                  |
+|        | Plug 'iamcco/markdown-preview.vim'       |                                               |
+|        | Plug 'dhruvasagar/vim-table-mode'        |                                               |
 |        |                                          |                                               |
 |        |                                          |                                               |
 |        |                                          |                                               |

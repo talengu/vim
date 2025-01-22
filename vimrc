@@ -22,20 +22,12 @@
   endfunction
 
 "-------------------------------------------------------------------------------
-" vundle settings
-
-  set nocompatible                     " 去除VI一致性,必须
-  filetype off                         " 必须
-
-  set rtp+=~/.vim/plugins/Vundle.vim
-  call vundle#begin('~/.vim/plugins')
-  Plugin 'VundleVim/Vundle.vim'
+" vim-plug settings
+" https://github.com/junegunn/vim-plug/wiki/tips
+  source ~/.vim/cfgs/plug.vim
+  call plug#begin('~/.vim/plugins')
   source ~/.vim/settings.vim
-  call vundle#end()
-
-  filetype plugin indent on " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
-
-" filetype plugin on          " 或者忽视插件改变缩进
+  call plug#end()
 
 "-------------------------------------------------------------------------------
 " Vim General
@@ -56,7 +48,7 @@
   set number                           " 设置行号
   syntax on                            " 语法高亮
   set ic                               " 忽略大小写
-  "set mouse+=a                         " 使用鼠标
+  set mouse+=a                         " 使用鼠标
   set clipboard+=unnamed
   set autoindent                       " 自动缩进
   set tabstop=4                        " Tab键的宽度

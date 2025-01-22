@@ -32,66 +32,66 @@
 " 文件目录和文件查找
 
 " =>页面与布局(Group)
-  Plugin 'itchyny/lightline.vim'
+  Plug 'itchyny/lightline.vim'
   source ~/.vim/cfgs/lightline_cfg.vim
 
-" Plugin 'vim-scripts/winmanager'
-" Plugin 'Lokaltog/vim-powerline'
+" Plug 'vim-scripts/winmanager'
+" Plug 'Lokaltog/vim-powerline'
 
-  Plugin 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
   source ~/.vim/cfgs/nerdtree_cfg.vim
 
-  Plugin 'majutsushi/tagbar'
+  Plug 'majutsushi/tagbar'
   source ~/.vim/cfgs/tagbar_cfg.vim
 
 " =>fugitive
-  Plugin 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
   source ~/.vim/cfgs/fugitive_cfg.vim
 
-  Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  Plugin 'kien/ctrlp.vim'
+  Plug 'kien/ctrlp.vim'
   source ~/.vim/cfgs/ctrlp_cfg.vim
 
 
 " =>YouCompleteMe
 " ./install.py --clang-completer
 " ./third_party/ycmd/clang_archives/libclang-8.0.0-x86_64-unknown-linux-gnu.tar.bz2
-" Plugin 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 " source ~/.vim/cfgs/ycm_cfg.vim
 
 " =>Track the engine.
-" Plugin 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 " source ~/.vim/cfgs/snips_cfg.vim
 
 " =>Snippets are separated from the engine. Add this if you want them:
-  Plugin 'honza/vim-snippets'
+  Plug 'honza/vim-snippets'
 
 " =>gtags 自动跳转工具
 " https://zhuanlan.zhihu.com/p/36279445/
-" Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'skywind3000/gutentags_plus'
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
 " source ~/.vim/cfgs/gutentags_plus_cfg.vim
 
 
 " =>缩进指示线(Group)
-  Plugin 'Yggdroot/indentLine'
+  Plug 'Yggdroot/indentLine'
   source ~/.vim/cfgs/indentline_cfg.vim
   
-  Plugin 'tell-k/vim-autopep8'
+  Plug 'tell-k/vim-autopep8'
   source ~/.vim/cfgs/autopep8_cfg.vim
   
-  Plugin 'jiangmiao/auto-pairs' "有时候会影响copy
+  Plug 'jiangmiao/auto-pairs' "有时候会影响copy
 
 " =>multiple selections for Vim
-  Plugin 'terryma/vim-multiple-cursors'
+  Plug 'terryma/vim-multiple-cursors'
   source ~/.vim/cfgs/vim-multiple-cursors_cfg.vim
 
-" Plugin 'Yggdroot/vim-mark'
+" Plug 'Yggdroot/vim-mark'
 
 " =>自动运行插件
 " http://liuchengxu.org/posts/use-vim-as-a-python-ide/
-  Plugin 'skywind3000/asyncrun.vim'
+  Plug 'skywind3000/asyncrun.vim'
   source ~/.vim/cfgs/asyncrun_cfg.vim
 
 "}
@@ -99,15 +99,15 @@
 "{-------------------------------others-----------------------------------
 " =>vim-help-doc and markdown editor
 
-  Plugin 'yianwillis/vimcdoc'                       " vim-chinese-doc
-  Plugin 'vim-utils/vim-man'                        " man pages
+  Plug 'yianwillis/vimcdoc'                       " vim-chinese-doc
+  Plug 'vim-utils/vim-man'                        " man pages
 
 " if OSX()
 " endif
 if 0                                               " for faster
-  Plugin 'iamcco/mathjax-support-for-mkdp'
-  Plugin 'iamcco/markdown-preview.vim'             " markdown插件
-  Plugin 'dhruvasagar/vim-table-mode'              " mardown table 的格式化
+  Plug 'iamcco/mathjax-support-for-mkdp'
+  Plug 'iamcco/markdown-preview.vim'             " markdown插件
+  Plug 'dhruvasagar/vim-table-mode'              " mardown table 的格式化
   source ~/.vim/cfgs/markdown_cfg.vim
 endif
 
