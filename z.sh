@@ -26,7 +26,7 @@
 #     * z -c foo  # restrict matches to subdirs of $PWD
 #     * z -x      # remove the current directory from the datafile
 #     * z -h      # show a brief help message
-# more info:https://github.com/rupa/z/edit/master/z.sh
+# more info: https://github.com/rupa/z
 # zhihu: https://zhuanlan.zhihu.com/p/50548459
 
 [ -d "${_Z_DATA:-$HOME/.z}" ] && {

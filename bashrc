@@ -25,9 +25,12 @@
 # export PS1="\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "
 # export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 
+# =>ps kill -9 xx if system is busy
+  alias ps10='ps aux --sort=-rss --width 30 |head -10'
+
 # =>tmux
   if [ `uname -s` != "Darwin" ];then
-    export TERM="screen-256color"
+    export TERM="xterm-256color"
 	  export PS1="\[\e]0;\$(date +'%Y-%m-%d %H:%M')   \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$"
   fi
   alias ta='tmux att'
@@ -71,12 +74,6 @@
 # alias githri='f(){ git clone ssh://name@192.168.1.100:8100/data/name/git/"$1".git; unset -f f; }; f'
 # alias gitremotehri='f(){ git remote add origin ssh://name@192.168.1.100:8100/~/git/"$1".git; unset -f f; }; f'
     
-
-
-# apt install xclip
-# alias gitsname='gits && gits |python3 ~/.vim/gitsname.py |xclip -selection clipboard'
-  alias gitsname='gits |python ~/.vim/gitsname.py'
-  alias path_site_package='python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"'
   
 
 # =>files
@@ -103,7 +100,9 @@
   alias findfile='f(){ find ./ -name "*.$1" -type f -print0 | xargs -0 grep "$2" > /tmp/find_tmp_log.txt && vim /tmp/find_tmp_log.txt; unset -f f; }; f'
 
 # man
-  alias man='~/.vim/viman'
+viman() {
+    vim -c "Man $1 $2" -c 'silent only'
+}
 
 # pandoc `tohtml file.md` to html and so on 
   alias tohtml='f(){ pandoc --standalone --self-contained --css ~/.vim/pandoc_css/pandoc.css "$1" --output "$1".html; unset -f f; }; f'
@@ -142,16 +141,77 @@ gitfun(){
 }
 
 tovim(){ $1 > /tmp/to_vim.txt && vim /tmp/to_vim.txt;}
-alias togitdiff='tovim "git diff" git_diff'
-alias togitlog='tovim "git log" git_log'
+  alias togitdiff='tovim "git diff" git_diff'
+  alias togitlog='tovim "git log" git_log'
 
 # make alias
-alias grun='f(){ gcc -m64 "$1" && ./a.out; unset if f;   }; f'
-alias grun32='f(){ gcc -m32 "$1" && ./a.out; unset if f;   }; f'
+  alias grun='f(){ gcc -m64 "$1" && ./a.out; unset if f;   }; f'
+  alias grun32='f(){ gcc -m32 "$1" && ./a.out; unset if f;   }; f'
 # alias mk='f(){ make $1> build.log 2>&1; unset -f f;   }; f'
 # alias watchlog='watch -n 1 "tail -n 13 build.log"'
-alias mk='f(){ make $1> build_$1.log 2>&1; unset -f f;  }; f'
-alias watchlog='watch -n 1 "grep -rsn 'error:' *.log;ls -t | head -1 | xargs -n 1 tail -n 13"'
+  alias mk='f(){ make $1> build_$1.log 2>&1; unset -f f;  }; f'
+  alias watchlog='watch -n 1 "grep -rsn 'error:' *.log;ls -t | head -1 | xargs -n 1 tail -n 13"'
+
+
+# guake
+  alias gr='guake -r'
+  alias gsl='guake --split-vertical' 
+  alias gs-='guake --split-horizontal' 
+  alias gn='guake -n NEW_TAB'
+  alias gp='guake -p'
+
+# tools python 脚本
+  HOME_TOOLS_PY=~/.vim/tools_py
+  alias vimup="vim $HOME_TOOLS_PY/up.py"
+  alias vimgvim="vim $HOME_TOOLS_PY/gvim.py"
+  alias vimgitcommit="vim $HOME_TOOLS_PY/gitcommit.py"
+
+  alias cpup='cp $HOME_TOOLS_PY/up.py ./up.py && chmod +x ./up.py && echo "copy up.py success!"&& ll ./up.py'
+  alias gfind='f(){ python3 $HOME_TOOLS_PY/gvim.py -g ./ -n "$1"; unset -f f;  }; f'
+  alias gvim='f(){ python3 $HOME_TOOLS_PY/gvim.py -m vim -vn "$1"; unset -f f;  }; f'
+  alias gitcommit='f(){ python3 $HOME_TOOLS_PY/gitcommit.py -c "$1"; unset -f f;  }; f'
+
+
+# apt install xclip
+  alias gitsname='gits |python $HOME_TOOLS_PY/gitsname.py'
+  alias path_site_package='python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"'
+  alias gitsnamec='gits && gits |python3 $HOME_TOOLS_PY/gitsname.py | xclip -selection clipboard'
+  alias gclip='xclip -selection c -o' #当前剪切板
+
+# rdesktop
+## alias rtwo='cd ~/Desktop && rdesktop 10.10.10.10 -r disk:share_name=./'
+
+# recordmydesktop
+## alias ffgif='f(){ file="${1%.ogv}"; ffmpeg -i "${file}.ogv" -f gif "${file}.gif"; unset -f f; }; f'
+  alias ffgif='f(){ file="${1%.webm}"; ffmpeg -i "${file}.webm" -f gif "${file}.gif"; unset -f f; }; f'
+
+# git_pull.sh
+# alias gitpullall='./git_pull.sh >gitpullall.log 2>&1'
+## list all git folders
+# for dir in *; do
+#  echo "## $dir"
+#  if [ -d "$dir" ] && [ -d "$dir/.git" ]; then
+#   echo "Pulling from $dir..."
+#   cd $dir
+#   git pull -r
+#   cd ../
+#  fi
+#  echo " "
+# done
+
+# git rebase 处理git冲突的方法
+## 1. gerrit 页面选择checkout命令
+## git fetch origin
+## git rebase origin/master
+
+## 2. 解决冲突 
+## git status -a可能存在冲突 
+
+## 3. 合入提交
+## git add .
+## git rebase --continue
+## git push origin HEAD:refs/drafts/master
+
 
 # debian禁止自动挂起
 # ref:https://wiki.debian.org/Suspend
@@ -169,7 +229,7 @@ alias watchlog='watch -n 1 "grep -rsn 'error:' *.log;ls -t | head -1 | xargs -n 
 # 	echo "Other OS: $sysOS"
 # fi
 
-# proxy
+# proxy 临时代理
 # alias proxy='export http_proxy=127.0.0.1:1080;export https_proxy=$http_proxy'
 # alias unproxy='unset http_proxy;unset https_proxy'
 

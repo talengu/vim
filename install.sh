@@ -12,12 +12,6 @@ Backup old.vim RUN:
 else
   git clone https://github.com/talengu/vim $RES_NAME
 
-  echo "#! /bin/sh
-  vim -c \"Man \$1 \$2\" -c 'silent only'
-  " > $RES_NAME/viman
-
-  chmod +x $RES_NAME/viman
-
   echo "Copy $RES_NAME to $VIM_FOLDER ."
   cp -r $RES_NAME $VIM_FOLDER
   echo "source $VIM_FOLDER/bashrc" >> ~/.bashrc

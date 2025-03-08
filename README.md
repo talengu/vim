@@ -7,7 +7,8 @@ This is a vimrc project.  [settings.vim](settings.vim) is for vim and plugins co
 
 
 ## Features
-Now use [vim-plug](https://github.com/junegunn/vim-plug) Vim plugin manager 2025/01/22
+- Now use [vim-plug](https://github.com/junegunn/vim-plug) Vim plugin manager 2025/01/22
+- use [z.sh](https://github.com/rupa/z) for autojump 2025/03/08
 
 ## My plugins
 
@@ -95,4 +96,5 @@ thank you!
 [2]: https://github.com/amix/vimrc	"stars most in github"
 [3]: https://github.com/humiaozuzu/dot-vimrc	"pictures good"
 [4]: https://github.com/chxuan/vimplus  "vimplus"
+[5]: https://github.com/rupa/z  "rupa/z"
 
