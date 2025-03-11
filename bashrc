@@ -26,7 +26,22 @@
 # export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 
 # =>ps kill -9 xx if system is busy
+psmac10() {
+    local lines=10  # 默认显示前10条
+	(ps aux | head -n 1; ps aux | sort -k6nr | head -n $((lines + 1))) | awk '{
+        cmd = $11
+        for (i=12; i<=NF; i++) cmd = cmd " " $i
+        if (match(cmd, /\.app/)) {
+            cmd = substr(cmd, 1, RSTART+3)  # 截取到.app路径
+        }
+        printf "%-8s %-6s %-5s %-5s %-10s %-10s %-3s %-8s %-10s %-10s %s\n", 
+            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, cmd
+    }'
+}
   alias ps10='ps aux --sort=-rss --width 30 |head -10'
+  if [ `uname -s` = "Darwin" ];then
+    alias ps10='psmac10'
+  fi
 
 # =>tmux
   if [ `uname -s` != "Darwin" ];then
